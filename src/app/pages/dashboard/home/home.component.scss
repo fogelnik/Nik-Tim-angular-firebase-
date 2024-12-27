@@ -1,0 +1,18 @@
+.home__content{
+ text-align: center;
+  margin-top: 100px;
+}
+.btn__sign-out{
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #ae01ab;
+  border: 0;
+  padding:10px 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px #e42ce4;
+  transition: .2s;
+}
+.btn__sign-out:hover{
+  background-color: #950293;
+}
+
