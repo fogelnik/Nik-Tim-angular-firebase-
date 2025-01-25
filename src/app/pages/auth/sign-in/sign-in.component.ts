@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../shared/services/auth.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
+
 
 @Component({
   selector: 'app-sign-in',
@@ -37,17 +37,19 @@ constructor(private authService: AuthService ,private router: Router) {
         this.errorMessage = 'Поле с паролем пустое';
         return;
       } else {
-        return
+        return;
       }
     }
 
     this.authService.signInWithEmail(this.authForm.value.email, this.authForm.value.password)
       .then(response => {
+        this.redirectToDashboardPage()
+      })
+      .catch(error => {
         console.error('error:', error);
         this.errorMessage = this.authService.handleError(error)
       })
   }
-
 
   onSignInWithGoogle(){
   this.authService.signInWithGoogle()

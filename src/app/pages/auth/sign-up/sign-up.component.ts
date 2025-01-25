@@ -2,8 +2,6 @@ import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../shared/services/auth.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
-
 
 @Component({
   selector: 'app-sign-up',
