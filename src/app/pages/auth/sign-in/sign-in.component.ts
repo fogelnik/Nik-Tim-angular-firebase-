@@ -1,64 +1,65 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Auth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup} from "@angular/fire/auth"
 import {Router} from "@angular/router";
-
+import {AuthService} from "../../../shared/services/auth.service";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.scss'
+  styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent {
 authForm!: FormGroup;
+errorMessage: string = '';
 
-googleAuthProvider = new GoogleAuthProvider
-
-  auth = inject(Auth)
-
-  isSubmissionProgress: boolean = false;
-  errorMessage: string = '';
-
-
-constructor(private router: Router) {
+constructor(private authService: AuthService ,private router: Router) {
   this.initForm()
 }
 
   initForm() {
         this.authForm = new FormGroup({
-          email: new FormControl('', Validators.required),
-          password: new FormControl('', Validators.required),
+          email: new FormControl('', [Validators.required, Validators.email]),
+          password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         })
     }
 
-  onSubmit(){
-  if(this.authForm.invalid)
-    return
-    signInWithEmailAndPassword(this.auth, this.authForm.value.email, this.authForm.value.password)
-      .then((response) => {
-      this.redirectToDashboardPage();
-    })
-      .catch(error => {
+  onSubmit() {
+    if (this.authForm.invalid) {
+      this.errorMessage = '';
+      if (!this.authForm.controls['email'].value && !this.authForm.controls['password'].value) {
+        this.errorMessage = 'Поля пустые';
+        return;
+      } else if (!this.authForm.controls['email'].value) {
+        this.errorMessage = 'Поле с почтой пустое';
+        return;
+      } else if (!this.authForm.controls['password'].value) {
+        this.errorMessage = 'Поле с паролем пустое';
+        return;
+      } else {
+        return
+      }
+    }
+
+    this.authService.signInWithEmail(this.authForm.value.email, this.authForm.value.password)
+      .then(response => {
         console.error('error:', error);
-        if(error instanceof Error){
-           if(error.message.includes('auth/invalid-email'))
-           {
-             this.errorMessage = 'Email is not valid'
-           }
-        }
+        this.errorMessage = this.authService.handleError(error)
       })
   }
 
-  onSignInWithGoogle() {
-  signInWithPopup(this.auth, this.googleAuthProvider)
+
+  onSignInWithGoogle(){
+  this.authService.signInWithGoogle()
     .then(response => {
-      this.redirectToDashboardPage();
+      this.redirectToDashboardPage()
     })
-    .catch (error => {
+    .catch(error => {
       console.error('error:', error);
-      this.errorMessage = 'Something went wrong, please try again.'
+      this.errorMessage = 'Something went wrong, please try again.';
     })
   }
+
   redirectToDashboardPage(){
     this.router.navigate(['/dashboard'])
   }

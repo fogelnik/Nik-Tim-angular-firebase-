@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {AuthService} from "../../../shared/services/auth.service";
+
+
 
 @Component({
   selector: 'app-home',
@@ -6,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+ private authService = inject(AuthService);
 
+  constructor() { }
+  onSignOut() {
+    this.authService.signOut()
+  }
 }
