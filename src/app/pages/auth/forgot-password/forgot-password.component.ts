@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
-import {Auth, sendPasswordResetEmail} from "@angular/fire/auth";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,16 +10,11 @@ import {Router} from "@angular/router";
 })
 export class ForgotPasswordComponent {
 
-
-  auth = inject(Auth)
-  router = inject(Router)
-
   form!: FormGroup;
-
   errorMessage: string = '';
   isPasswordResetEmailSent: boolean = false;
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this.initForm();
   }
 
@@ -30,15 +25,14 @@ export class ForgotPasswordComponent {
   }
 
   onSubmit(){
-    if(this.form.invalid)
-      return;
+    if(this.form.invalid) return;
 
-    sendPasswordResetEmail(this.auth, this.form.value.email)
+    this.authService.sendPasswordReset(this.form.value.email)
       .then(response => {
-        this.isPasswordResetEmailSent = true
+        this.isPasswordResetEmailSent = true;
       })
       .catch(error => {
-
+        console.error('error:', error);
       })
   }
 }
