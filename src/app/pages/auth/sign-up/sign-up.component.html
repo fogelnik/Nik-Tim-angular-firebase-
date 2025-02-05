@@ -1,24 +1,49 @@
-<div class="main">
-  <div class="main-header">
-    <h3>
-      Welcome to WB
-    </h3>
-    <p>
-      Please sign-in and sign-up to start using this project
-    </p>
-  </div>
-  <form class="form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
-    <input class="form-input__email" type="email" placeholder="Email" formControlName="email">
-    <input class="form-input__password" type="password" placeholder="Password" formControlName="password">
-    <button type="submit" class="form__btn-sign-up">Sign-Up</button>
-    <div class="alert-danger" *ngIf="errorMessage">
-      {{errorMessage}}
+<!--<div class="main">-->
+<!--  <div class="main-header">-->
+<!--    <h3>-->
+<!--      Welcome to WB-->
+<!--    </h3>-->
+<!--    <p>-->
+<!--      Please sign-in and sign-up to start using this project-->
+<!--    </p>-->
+<!--  </div>-->
+<!--  <form class="form" [formGroup]="authForm" (ngSubmit)="onSubmit()">-->
+<!--    <input class="form-input__email" type="email" placeholder="Email" formControlName="email">-->
+<!--    <input class="form-input__password" type="password" placeholder="Password" formControlName="password">-->
+<!--    <button type="submit" class="form__btn-sign-up">Sign-Up</button>-->
+<!--    <div class="alert-danger" *ngIf="errorMessage">-->
+<!--      {{errorMessage}}-->
+<!--    </div>-->
+<!--    <button class="form__btn-sign-in-google" (click)="onSignInWithGoogle()">Sign-Up with Google </button>-->
+<!--    <p>-->
+<!--      You have an account?-->
+<!--    </p>-->
+<!--    <button class="form__btn-sign-in" [routerLink]="['/auth/sign-in']" >Sign-In</button>-->
+<!--    <a class="link__forgot-password" [routerLink]="['/auth/forgot-password']">Forgot Password</a>-->
+<!--  </form>-->
+<!--</div>-->
+
+<div class="sign-up__page">
+  <div class="sign-up__block">
+    <div class="sign-up__block-title">
+      <h2>Войти или создать профиль</h2>
     </div>
-    <button class="form__btn-sign-in-google" (click)="onSignInWithGoogle()">Sign-Up with Google </button>
-    <p>
-      You have an account?
-    </p>
-    <button class="form__btn-sign-in" [routerLink]="['/auth/sign-in']" >Sign-In</button>
-    <a class="link__forgot-password" [routerLink]="['/auth/forgot-password']">Forgot Password</a>
-  </form>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="sign-up__form">
+      <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email">
+      <input class="sign-up__form-password" type="password" placeholder="Password" formControlName="password">
+      <div class="alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+      <button type="submit" class="sign-up__form-btn">Регистрация</button>
+    </form>
+    <div class="sign-up__additional-features">
+      <button class="sign-up__btn-in-google" (click)="onSignInWithGoogle()" >Регистрация через Google</button>
+      <p>
+        У вас нет аккаунта?
+      </p>
+      <button class="sign-up__btn-sign-in" [routerLink]="['/auth/sign-in']" >Вход</button>
+      <a class="sign-up__link-forgot-password" [routerLink]="['/auth/forgot-password']">Восстановить пароль</a>
+    </div>
+  </div>
 </div>
+

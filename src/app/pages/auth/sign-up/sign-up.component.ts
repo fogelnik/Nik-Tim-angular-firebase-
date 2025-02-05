@@ -1,7 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AuthService} from "../../../services/auth.service";
+import {AuthService} from "../../services/auth.service";
+
 
 @Component({
   selector: 'app-sign-up',
@@ -11,6 +12,13 @@ import {AuthService} from "../../../services/auth.service";
 export class SignUpComponent {
   authForm!: FormGroup;
   errorMessage: string = '';
+
+  get email():string{
+    return this.authForm.controls['email'].value;
+  }
+  get password():string{
+    return this.authForm.controls['password'].value;
+  }
 
   constructor( private authService: AuthService, private router: Router) {
     this.initForm()
@@ -24,7 +32,21 @@ export class SignUpComponent {
   }
 
   onSubmit(){
-    if(this.authForm.invalid) return;
+    if(this.authForm.invalid){
+      this.errorMessage = '';
+      if(!this.email && !this.password){
+        this.errorMessage = 'Поля пустые';
+        return;
+      }else if(!this.email){
+        this.errorMessage = 'Поле с почтой пустое';
+        return;
+      }else if(!this.password){
+        this.errorMessage = 'После с паролем пустое';
+        return;
+      }else {
+        return;
+      }
+    }
 
    this.authService.signUpWithEmail(this.authForm.value.email, this.authForm.value.password)
      .then(response => {

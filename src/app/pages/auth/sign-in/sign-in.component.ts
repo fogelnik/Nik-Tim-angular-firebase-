@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AuthService} from "../../../services/auth.service";
+import {AuthService} from "../../services/auth.service";
 
 
 @Component({
@@ -12,6 +12,13 @@ import {AuthService} from "../../../services/auth.service";
 export class SignInComponent {
 authForm!: FormGroup;
 errorMessage: string = '';
+
+  get email():string{
+    return this.authForm.controls['email'].value;
+  }
+  get password():string{
+    return this.authForm.controls['password'].value;
+  }
 
 constructor(private authService: AuthService ,private router: Router) {
   this.initForm()
@@ -27,13 +34,13 @@ constructor(private authService: AuthService ,private router: Router) {
   onSubmit() {
     if (this.authForm.invalid) {
       this.errorMessage = '';
-      if (!this.authForm.controls['email'].value && !this.authForm.controls['password'].value) {
+      if (!this.email && !this.password) {
         this.errorMessage = 'Поля пустые';
         return;
-      } else if (!this.authForm.controls['email'].value) {
+      } else if (!this.email) {
         this.errorMessage = 'Поле с почтой пустое';
         return;
-      } else if (!this.authForm.controls['password'].value) {
+      } else if (!this.password) {
         this.errorMessage = 'Поле с паролем пустое';
         return;
       } else {

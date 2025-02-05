@@ -5,32 +5,55 @@ import {
   GoogleAuthProvider, sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signOut
+  signOut, User, browserLocalPersistence
 } from "@angular/fire/auth";
 import {Router} from "@angular/router";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-public  test = ''
-  private googleAuthProvider = new GoogleAuthProvider()
+  private googleAuthProvider = new GoogleAuthProvider();
 
   constructor(
     private auth: Auth,
     private router: Router,
-  ) { }
+  ) {
+    this.auth.setPersistence(browserLocalPersistence).catch(error => {
+      console.error('Ошибка при установке режима сохранения:', error)
+    });
+
+    const user: User | null = this.getUserFromLocalStorage();
+    if (user) {
+      this.auth.updateCurrentUser(user).catch(error => {
+        console.error('Ошибка при восстановлении пользователя:', error);
+      });
+    }
+  }
 
   signInWithEmail(email: string, password: string){
-    return signInWithEmailAndPassword(this.auth, email, password);
+    return signInWithEmailAndPassword(this.auth, email, password)
+      .then(credential => {
+          this.saveUserToLocalStorage(credential.user);
+          return credential;
+        });
   }
 
   signInWithGoogle() {
-    return signInWithPopup(this.auth,this.googleAuthProvider);
+    return signInWithPopup(this.auth,this.googleAuthProvider)
+      .then(credential => {
+        this.saveUserToLocalStorage(credential.user);
+        return credential;
+      });
   }
 
   signUpWithEmail(email: string, password:string){
-    return createUserWithEmailAndPassword(this.auth, email, password);
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then(credential => {
+        this.saveUserToLocalStorage(credential.user);
+        return credential;
+      });
   }
 
   handleError(error: unknown): string{
@@ -47,13 +70,14 @@ public  test = ''
       }
     }
     return 'Something went wrong, please try again.';
-    }
+  }
 
 
 
   signOut(){
     return signOut(this.auth)
       .then(() => {
+        this.clearUserFromLocalStorage();
         this.router.navigate(['/auth/sign-in']);
       })
       .catch(error => {
@@ -64,4 +88,18 @@ public  test = ''
   sendPasswordReset(email: string){
     return sendPasswordResetEmail(this.auth, email);
   }
+
+  private saveUserToLocalStorage(user: User){
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  private getUserFromLocalStorage(): User | null {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  private clearUserFromLocalStorage() {
+    localStorage.removeItem('user');
+  }
+
 }
