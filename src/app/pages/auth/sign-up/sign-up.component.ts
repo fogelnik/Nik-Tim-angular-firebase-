@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AuthService} from "../../services/auth.service";
+import {AuthService} from "../../../services/auth.service";
 
 
 @Component({
@@ -41,7 +41,7 @@ export class SignUpComponent {
         this.errorMessage = 'Поле с почтой пустое';
         return;
       }else if(!this.password){
-        this.errorMessage = 'После с паролем пустое';
+        this.errorMessage = 'Поле с паролем пустое';
         return;
       }else {
         return;
