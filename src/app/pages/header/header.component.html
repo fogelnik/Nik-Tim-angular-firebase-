@@ -1,98 +1,98 @@
 <header>
   <div class="header__wrapper">
-  <div class="header__top">
-    <ul class="header__top-menu">
-      <li class="header__top-menu-geo">
+    <div class="header__content">
+      <div class="header__top">
+        <ul class="header__top-menu">
+          <li class="header__top-menu-geo">
          <span class="header__top-menu-geo-icon">
               <img src="/assets/location.png" alt="img">
          </span>
-          <span>Минск</span>
-      </li>
-      <li class="header__top-menu-sale-on-wb">
-        Продавайте на Wildberries
-      </li>
-      <li class="header__top-menu-work-in-wb">
-        Работа в Wildberries
-      </li>
-    </ul>
-    <div class="header__top-menu-country" (mouseover)="showModal()" (mouseleave)="hideModal()">
-      <img src="assets/flag/flag.png" alt="img">
-      <span>BYN</span>
-    </div>
+            <span>Минск</span>
+          </li>
+          <li class="header__top-menu-sale-on-wb">
+            Продавайте на Wildberries
+          </li>
+          <li class="header__top-menu-work-in-wb">
+            Работа в Wildberries
+          </li>
+        </ul>
+        <div class="header__top-menu-country" (mouseover)="showModal()" (mouseleave)="hideModal()">
+          <img src="assets/flag/flag.png" alt="img">
+          <span>BYN</span>
+        </div>
 
-    <div *ngIf="isModalVisible" class="header__top-menu-country-modal">
-      <h4>Валюта</h4>
-      <div class="header__top-menu-country-modal-block">
-        <img src="assets/flag/flag.png" alt="img">
-        <span class="header__top-menu-country-modal-block-currency">BYN</span>
-        <span>Белорусский рубль</span>
-      </div>
-      <div class="header__top-menu-country-modal-block">
-        <img src="assets/flag/russia.png" alt="img">
-        <span class="header__top-menu-country-modal-block-currency">RUB</span>
-        <span>Российский рубль</span>
-      </div>
-      <div class="header__top-menu-country-modal-block">
-        <img src="assets/flag/kzh.png" alt="img">
-        <span class="header__top-menu-country-modal-block-currency">KZT</span>
-        <span>Казахстанский тенге</span>
-      </div >
-      <div class="header__top-menu-country-modal-block">
-        <img src="assets/flag/kzh.png" alt="img">
-        <span class="header__top-menu-country-modal-block-currency">AMD</span>
-        <span>Армянский драм</span>
-      </div>
-      <div class="header__top-menu-country-modal-block">
-        <img src="assets/flag/kzh.png" alt="img">
-        <span class="header__top-menu-country-modal-block-currency">KGS</span>
-        <span>Кыргызский сом</span>
-      </div>
-      <div class="header__top-menu-country-modal-block">
-        <img src="assets/flag/kzh.png" alt="img">
-        <span class="header__top-menu-country-modal-block-currency">UZS</span>
-        <span>Узбекский сум</span>
-      </div>
-    </div>
+        <div *ngIf="isModalVisible" class="header__top-menu-country-modal">
+          <h4>Валюта</h4>
+          <div class="header__top-menu-country-modal-block">
+            <img src="assets/flag/flag.png" alt="img">
+            <span class="header__top-menu-country-modal-block-currency">BYN</span>
+            <span>Белорусский рубль</span>
+          </div>
+          <div class="header__top-menu-country-modal-block">
+            <img src="assets/flag/russia.png" alt="img">
+            <span class="header__top-menu-country-modal-block-currency">RUB</span>
+            <span>Российский рубль</span>
+          </div>
+          <div class="header__top-menu-country-modal-block">
+            <img src="assets/flag/kzh.png" alt="img">
+            <span class="header__top-menu-country-modal-block-currency">KZT</span>
+            <span>Казахстанский тенге</span>
+          </div >
+          <div class="header__top-menu-country-modal-block">
+            <img src="assets/flag/kzh.png" alt="img">
+            <span class="header__top-menu-country-modal-block-currency">AMD</span>
+            <span>Армянский драм</span>
+          </div>
+          <div class="header__top-menu-country-modal-block">
+            <img src="assets/flag/kzh.png" alt="img">
+            <span class="header__top-menu-country-modal-block-currency">KGS</span>
+            <span>Кыргызский сом</span>
+          </div>
+          <div class="header__top-menu-country-modal-block">
+            <img src="assets/flag/kzh.png" alt="img">
+            <span class="header__top-menu-country-modal-block-currency">UZS</span>
+            <span>Узбекский сум</span>
+          </div>
+        </div>
 
 
-  </div>
-    <div class="header__bottom">
-      <div class="header__bottom-block-burger">
-        <h1>wildberries</h1>
-        <div class="header__bottom-block-burger-menu">
+      </div>
+      <div class="header__bottom">
+        <div class="header__bottom-block-burger">
+          <h1>wildberries</h1>
+          <div class="header__bottom-block-burger-menu">
             <span class="burger-line-1"></span>
             <span class="burger-line-2"></span>
             <span class="burger-line-3"></span>
+          </div>
         </div>
-      </div>
-      <div class="header__bottom-block-search">
-        <input class="header__bottom-block-search-input" type="search" placeholder="Найти на Wildberries">
-      </div>
-      <div class="header__bottom-block-nav">
-        <div class="header__bottom-block-nav-addresses">
-          <img src="/assets/location.png" alt="img">
-        <span>
+        <div class="header__bottom-block-search">
+          <input class="header__bottom-block-search-input" type="search" placeholder="Найти на Wildberries">
+        </div>
+        <div class="header__bottom-block-nav">
+          <div class="header__bottom-block-nav-addresses">
+            <img src="/assets/location.png" alt="img">
+            <span>
           Адреса
         </span>
-        </div>
-        <div class="header__bottom-block-nav-sign-in" [routerLink]="['/auth/sign-in']">
-          <img src="/assets/user.png" alt="img">
-        <span>
+          </div>
+          <div class="header__bottom-block-nav-sign-in" [routerLink]="['/auth/sign-in']">
+            <img src="/assets/user.png" alt="img">
+            <span>
           Войти
         </span>
-        </div>
-        <div class="header__bottom-block-nav-basket">
-          <img src="/assets/shopping-bag.png" alt="img">
-        <span>
+          </div>
+          <div class="header__bottom-block-nav-basket">
+            <img src="/assets/shopping-bag.png" alt="img">
+            <span>
           Корзина
         </span>
+          </div>
+          <!--        <div class="modal">-->
+          <!--          <p> ваши товары в корзине</p>-->
+          <!--        </div>-->
         </div>
-<!--        <div class="modal">-->
-<!--          <p> ваши товары в корзине</p>-->
-<!--        </div>-->
       </div>
     </div>
-
-
   </div>
 </header>
