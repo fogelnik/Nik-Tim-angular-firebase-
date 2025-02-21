@@ -9,7 +9,7 @@ import {AuthService} from "../../../services/auth.service";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
- private authService = inject(AuthService);
+ public authService = inject(AuthService);
 
   constructor() { }
   onSignOut() {

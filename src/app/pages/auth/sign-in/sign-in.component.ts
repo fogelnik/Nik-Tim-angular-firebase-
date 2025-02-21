@@ -1,17 +1,26 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {Router, RouterLink} from "@angular/router";
 import {AuthService} from "../../../services/auth.service";
+import {NgIf} from "@angular/common";
 
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
+  imports: [
+    ReactiveFormsModule,
+    NgIf,
+    RouterLink
+  ],
+  standalone: true
 })
 export class SignInComponent {
 authForm!: FormGroup;
 errorMessage: string = '';
+passwordVisible: boolean = false; //
+  showClearButton: boolean = false;//
 
   get email():string{
     return this.authForm.controls['email'].value;
@@ -30,6 +39,17 @@ constructor(private authService: AuthService ,private router: Router) {
           password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         })
     }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
+  toggleClearButton() {
+    this.showClearButton = this.email.length > 0;
+  }
+  clearEmail() {
+    this.authForm.controls['email'].setValue('');
+    this.toggleClearButton();
+  }
 
   onSubmit() {
     if (this.authForm.invalid) {

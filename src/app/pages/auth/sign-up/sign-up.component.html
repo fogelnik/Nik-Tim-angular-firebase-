@@ -1,27 +1,3 @@
-<!--<div class="main">-->
-<!--  <div class="main-header">-->
-<!--    <h3>-->
-<!--      Welcome to WB-->
-<!--    </h3>-->
-<!--    <p>-->
-<!--      Please sign-in and sign-up to start using this project-->
-<!--    </p>-->
-<!--  </div>-->
-<!--  <form class="form" [formGroup]="authForm" (ngSubmit)="onSubmit()">-->
-<!--    <input class="form-input__email" type="email" placeholder="Email" formControlName="email">-->
-<!--    <input class="form-input__password" type="password" placeholder="Password" formControlName="password">-->
-<!--    <button type="submit" class="form__btn-sign-up">Sign-Up</button>-->
-<!--    <div class="alert-danger" *ngIf="errorMessage">-->
-<!--      {{errorMessage}}-->
-<!--    </div>-->
-<!--    <button class="form__btn-sign-in-google" (click)="onSignInWithGoogle()">Sign-Up with Google </button>-->
-<!--    <p>-->
-<!--      You have an account?-->
-<!--    </p>-->
-<!--    <button class="form__btn-sign-in" [routerLink]="['/auth/sign-in']" >Sign-In</button>-->
-<!--    <a class="link__forgot-password" [routerLink]="['/auth/forgot-password']">Forgot Password</a>-->
-<!--  </form>-->
-<!--</div>-->
 
 <div class="sign-up__page">
   <div class="sign-up__block">
@@ -29,8 +5,19 @@
       <h2>Войти или создать профиль</h2>
     </div>
     <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="sign-up__form">
-      <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email">
-      <input class="sign-up__form-password" type="password" placeholder="Password" formControlName="password">
+      <div class="email-wrapper">
+        <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email" (input)="toggleClearButton()">
+        <button class="clear-email" type="button" (click)="clearEmail()" *ngIf="showClearButton">
+          &#10006;
+        </button>
+      </div>
+<!--      <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email">-->
+      <div class="password-wrapper">
+        <input [type]="passwordVisible ? 'text' : 'password'" class="sign-up__form-password" placeholder="Password" formControlName="password">
+        <button class="show-password" type="button" (click)="togglePasswordVisibility()">
+          <i class="eye-icon">{{ passwordVisible ? '👁️' : '👁️‍🗨️' }}</i>
+        </button>
+      </div>
       <div class="alert-danger" *ngIf="errorMessage">
         {{errorMessage}}
       </div>

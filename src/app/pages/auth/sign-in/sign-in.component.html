@@ -5,8 +5,24 @@
       <h2>Войти или создать профиль</h2>
     </div>
       <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="sign-in__form">
-        <input class="sign-in__form-email" type="email" placeholder="Email" formControlName="email">
-        <input class="sign-in__form-password" type="password" placeholder="Password" formControlName="password">
+        <div class="email-wrapper">
+          <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email" (input)="toggleClearButton()">
+          <button class="clear-email" type="button" (click)="clearEmail()" *ngIf="showClearButton">
+            &#10006;
+          </button>
+        </div>
+<!--        <div class="password-wrapper">-->
+<!--          <input [type]="passwordVisible ? 'text' : 'password'" class="sign-up__form-password" placeholder="Password" formControlName="password">-->
+<!--          <button class="show-password" type="button" (click)="togglePasswordVisibility()">-->
+<!--            {{ passwordVisible ? 'Скрыть' : 'Показать' }}-->
+<!--          </button>-->
+<!--        </div>-->
+        <div class="password-wrapper">
+          <input [type]="passwordVisible ? 'text' : 'password'" class="sign-up__form-password" placeholder="Password" formControlName="password">
+          <button class="show-password" type="button" (click)="togglePasswordVisibility()">
+            <i class="eye-icon">{{ passwordVisible ? '👁️' : '👁️‍🗨️' }}</i>
+          </button>
+        </div>
         <div class="alert-danger" *ngIf="errorMessage">
           {{errorMessage}}
         </div>

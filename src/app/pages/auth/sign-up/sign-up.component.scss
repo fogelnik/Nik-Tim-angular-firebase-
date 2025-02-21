@@ -85,7 +85,7 @@ select {
   border-radius: 10px;
   padding: 30px;
   max-width: 400px;
-  margin: 200px auto;
+  margin: 50px auto;
 }
 .sign-up__block-title{
   margin-bottom: 20px;
@@ -95,30 +95,82 @@ select {
   display: flex;
   flex-direction: column;
 }
+//.sign-up__form-email{
+//  color: #0b0b0b;
+//  border: 2px solid #8707ff;
+//  border-radius: 10px;
+//  padding: 10px 25px;
+//  background: transparent;
+//  margin-top: 10px;
+//  margin-bottom: 15px;
+//}
+//.sign-up__form-email:active{
+//  box-shadow: 2px 2px 15px #8707ff inset;
+//  border: 2px solid #6201ba;
+//}
+//.sign-up__form-password{
+//  color: #0b0b0b;
+//  border: 2px solid #8707ff;
+//  border-radius: 10px;
+//  padding: 10px 25px;
+//  background: transparent;
+//  margin-bottom: 20px;
+//}
+//.sign-up__form-password:active{
+//  box-shadow: 2px 2px 15px #8707ff inset;
+//  border: 2px solid #6201ba;
+//}
+
+.email-wrapper {
+  position: relative;
+}
+.clear-email {
+  position: absolute;
+  top: 37%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+}
+.clear-email:hover {
+  color: #999;
+}
 .sign-up__form-email{
-  color: #0b0b0b;
-  border: 2px solid #8707ff;
-  border-radius: 10px;
-  padding: 10px 25px;
-  background: transparent;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
 }
-.sign-up__form-email:active{
-  box-shadow: 2px 2px 15px #8707ff inset;
-  border: 2px solid #6201ba;
+.sign-up__form-password {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
 }
-.sign-up__form-password{
-  color: #0b0b0b;
-  border: 2px solid #8707ff;
-  border-radius: 10px;
-  padding: 10px 25px;
-  background: transparent;
-  margin-bottom: 20px;
+.password-wrapper {
+  position: relative;
 }
-.sign-up__form-password:active{
-  box-shadow: 2px 2px 15px #8707ff inset;
-  border: 2px solid #6201ba;
+.show-password {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.eye-icon {
+  font-size: 18px;
 }
 .alert-danger{
   background-color: rgba(223, 0, 0, 0.37);
@@ -184,8 +236,13 @@ select {
 .sign-up__link-forgot-password:hover{
   color: #e602e3;
 }
-
-
+//.password-wrapper {
+//  display: flex;
+//  align-items: center;
+//}
+//.show-password{
+//  margin-left: 10px;
+//}
 
 
 

@@ -76,107 +76,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-//.main{
-//  display: flex;
-//  flex-direction: column;
-//  margin-top: 200px;
-//}
-//.main-header{
-//  text-align: center;
-//}
-//.form-input__email{
-//  color: #0b0b0b;
-//  border: 2px solid #8707ff;
-//  border-radius: 10px;
-//  padding: 10px 25px;
-//  background: transparent;
-//  max-width: 220px;
-//  margin-top: 10px;
-//  margin-bottom: 15px;
-//}
-//.form-input__email:active{
-//  box-shadow: 2px 2px 15px #8707ff inset;
-//  border: 2px solid #6201ba;
-//}
-//.form-input__password{
-//  color: #0b0b0b;
-//  border: 2px solid #8707ff;
-//  border-radius: 10px;
-//  padding: 10px 25px;
-//  background: transparent;
-//  max-width: 220px;
-//  margin-bottom: 20px;
-//}
-//.form-input__password:active{
-//  box-shadow: 2px 2px 15px #8707ff inset;
-//  border: 2px solid #6201ba;
-//}
-//.form{
-//  display: flex;
-//  flex-direction: column;
-//  margin: 0 auto;
-//}
-//.form p{
-//  text-align: center;
-//}
-//.form__btn-sign-in{
-//  cursor: pointer;
-//  border: 0;
-//  padding:10px 15px;
-//  border-radius: 10px;
-//  box-shadow: 3px 3px 5px #b3b1b1;
-//  transition: .2s;
-//  margin-bottom: 15px;
-//}
-//.form__btn-sign-in:hover{
-//  background-color: #d8d8d8;
-//}
-//.form__btn-sign-in-google{
-//  cursor: pointer;
-//  border: 0;
-//  padding:10px 15px;
-//  border-radius: 10px;
-//  box-shadow: 3px 3px 5px #b3b1b1;
-//  transition: .2s;
-//  margin-bottom: 20px;
-//}
-//.form__btn-sign-in-google:hover{
-//  background-color: #d8d8d8;
-//}
-//
-//.form__btn-sign-up{
-//  cursor: pointer;
-//  color: #ffffff;
-//  background-color: #ae01ab;
-//  border: 0;
-//  padding:10px 15px;
-//  border-radius: 10px;
-//  box-shadow: 3px 3px 5px #e42ce4;
-//  transition: .2s;
-//}
-//.form__btn-sign-up:hover{
-//  background-color: #950293;
-//}
-//.link__forgot-password{
-//  text-decoration: none;
-//  color: #950293;
-//  display: block;
-//  margin-top: 20px;
-//  text-align: center;
-//}
-//.link__forgot-password:hover{
-//  color: #e602e3;
-//}
-//
-//.alert-danger{
-//  background-color: rgba(223, 0, 0, 0.37);
-//  padding: 10px 15px;
-//  text-align: center;
-//  border: 1px solid #8a0000;
-//  border-radius: 5px;
-//  margin-bottom: 20px;
-//}
-
 
 .sign-in__block{
   display: flex;
@@ -185,7 +84,7 @@ select {
   border-radius: 10px;
   padding: 30px;
   max-width: 400px;
-  margin: 200px auto;
+  margin: 50px auto;
 }
 .sign-in__block-title{
   margin-bottom: 20px;
@@ -195,31 +94,19 @@ select {
   display: flex;
   flex-direction: column;
 }
-.sign-in__form-email{
-  color: #0b0b0b;
-  border: 2px solid #8707ff;
-  border-radius: 10px;
-  padding: 10px 25px;
-  background: transparent;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-.sign-in__form-email:active{
-  box-shadow: 2px 2px 15px #8707ff inset;
-  border: 2px solid #6201ba;
-}
-.sign-in__form-password{
-    color: #0b0b0b;
-    border: 2px solid #8707ff;
-    border-radius: 10px;
-    padding: 10px 25px;
-    background: transparent;
-    margin-bottom: 20px;
-}
-.sign-in__form-password:active{
-    box-shadow: 2px 2px 15px #8707ff inset;
-    border: 2px solid #6201ba;
-}
+
+//.sign-in__form-password{
+//    color: #0b0b0b;
+//    border: 2px solid #8707ff;
+//    border-radius: 10px;
+//    padding: 10px 25px;
+//    background: transparent;
+//    margin-bottom: 20px;
+//}
+//.sign-in__form-password:active{
+//    box-shadow: 2px 2px 15px #8707ff inset;
+//    border: 2px solid #6201ba;
+//}
 .alert-danger{
   background-color: rgba(223, 0, 0, 0.37);
   padding: 10px 15px;
@@ -283,4 +170,89 @@ select {
 }
 .sign-in__link-forgot-password:hover{
   color: #e602e3;
+}
+
+.password-wrapper {
+  position: relative;
+}
+.sign-up__form-email{
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+.sign-up__form-password {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+.show-password {
+  position: absolute;
+  top: 35%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.eye-icon {
+  font-size: 18px;
+}
+
+//.password-wrapper {
+//  display: flex;
+//  align-items: center;
+//  border: 1px solid #ccc;
+//  border-radius: 5px;
+//  padding: 0.5rem;
+//  background-color: #f9f9f9;
+//}
+
+//.sign-up__form-password {
+//  flex-grow: 1;
+//  border: none;
+//  outline: none;
+//  padding: 0.5rem;
+//  border-radius: 5px 0 0 5px;
+//  background-color: #f9f9f9;
+//}
+
+
+.email-wrapper {
+  position: relative;
+}
+.clear-email {
+  position: absolute;
+  top: 37%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+}
+.clear-email:hover {
+  color: #999;
+}
+.sign-in__form-email{
+  color: #0b0b0b;
+  border: 2px solid #8707ff;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.sign-in__form-email:active{
+  box-shadow: 2px 2px 15px #8707ff inset;
+  border: 2px solid #6201ba;
 }

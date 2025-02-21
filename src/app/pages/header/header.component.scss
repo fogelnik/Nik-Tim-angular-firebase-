@@ -1,0 +1,300 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+header{
+
+  background-image: url("https://static-basket-01.wbbasket.ru/vol2/site/i/v3/header/background_oblaka_2025.webp");
+
+}
+.header__wrapper{
+  max-width: 1440px;
+  padding: 15px 40px;
+}
+.header__top{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.header__top-menu{
+  display: flex;
+  align-items: center;
+}
+
+.header__top-menu-geo{
+  display: flex;
+  align-items: center;
+  margin-right: 120px;
+  color: white;
+}
+.header__top-menu-geo-icon{
+  margin-right: 7px;
+  color: #ce8df6;
+}
+.header__top-menu-geo-icon img{
+  width: 18px;
+  filter: invert(1);
+}
+
+
+.header__top-menu-sale-on-wb{
+  color: #ce8df6;
+  margin: 0 20px 0 130px;
+  cursor: pointer;
+  transition: .2s;
+}
+.header__top-menu-sale-on-wb:hover{
+  color: #faeffd;
+}
+.header__top-menu-work-in-wb{
+  color: #ce8df6;
+  cursor: pointer;
+  transition: .2s;
+}
+.header__top-menu-work-in-wb:hover{
+  color: #f9eeff;
+}
+.header__top-menu-country{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: #963af5;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.header__top-menu-country img{
+  width: 18px;
+  margin-right: 5px;
+}
+
+.header__bottom-block-burger{
+  display: flex;
+  align-items: center;
+}
+.header__bottom-block-burger h1{
+  color: white;
+  margin-right: 20px;
+}
+.header__bottom-block-burger-menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #d58ef1;
+  width: 58px;
+  height: 58px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s;
+}
+.header__bottom-block-burger-menu:hover{
+  border: 1px solid #ffffff;
+}
+.burger-line-1{
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.burger-line-2{
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+.burger-line-3{
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.header__bottom-block-search-input{
+  width: 750px;
+  padding: 20px;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+}
+.header__bottom-block-nav{
+  display: flex;
+  align-items: center;
+}
+.header__bottom-block-nav-addresses{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__bottom-block-nav-addresses img{
+  width: 28px;
+  margin-bottom: 5px;
+  filter: invert(1);
+}
+.header__bottom-block-nav-sign-in{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__bottom-block-nav-sign-in img{
+  width: 28px;
+  margin-bottom: 5px;
+  filter: invert(1);
+}
+.header__bottom-block-nav-basket{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__bottom-block-nav-basket img{
+  width: 28px;
+  margin-bottom: 5px;
+  filter: invert(1);
+}
+.header__bottom-block-nav-addresses{
+  cursor: pointer;
+  color: #e9acef;
+  margin-right: 20px;
+  transition: .2s;
+}
+.header__bottom-block-nav-addresses:hover{
+  color: #fef1ff;
+}
+.header__bottom-block-nav-sign-in{
+  cursor: pointer;
+  color: #e9acef;
+  margin-right: 20px;
+  transition: .2s;
+}
+.header__bottom-block-nav-sign-in:hover{
+  color: #fef1ff;
+}
+.header__bottom-block-nav-basket{
+  cursor: pointer;
+  color: #e9acef;
+  margin-right: 20px;
+  transition: .2s;
+}
+.header__bottom-block-nav-basket:hover{
+  color: #fef1ff;
+}
+
+.header__bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__top-menu-country-modal {
+  position: absolute;
+  top: 50px; /* Отрегулируйте позицию по необходимости */
+  right: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000; /* Убедитесь, что модальное окно находится над остальным содержимым */
+}
+.header__top-menu-country-modal h4{
+  margin-bottom: 15px;
+}
+.header__top-menu-country-modal-block{
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.header__top-menu-country-modal-block img{
+  width: 26px;
+  margin-right: 10px;
+}
+.header__top-menu-country-modal-block-currency{
+  color: #777677;
+  margin-right: 15px;
+}
+
+//.modal {
+//  position: absolute;
+//  top: 50px;
+//  right: 0;
+//  background-color: white;
+//  border: 1px solid #ccc;
+//  padding: 20px;
+//  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//}
