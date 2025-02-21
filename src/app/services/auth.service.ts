@@ -5,7 +5,7 @@ import {
   GoogleAuthProvider, sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signOut, User, browserLocalPersistence
+  signOut, User, browserLocalPersistence, onAuthStateChanged
 } from "@angular/fire/auth";
 import {Router} from "@angular/router";
 
@@ -15,6 +15,7 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
   private googleAuthProvider = new GoogleAuthProvider();
+  public userInfo: User | null = null
 
   constructor(
     private auth: Auth,
@@ -24,12 +25,19 @@ export class AuthService {
       console.error('Ошибка при установке режима сохранения:', error)
     });
 
-    const user: User | null = this.getUserFromLocalStorage();
-    if (user) {
-      this.auth.updateCurrentUser(user).catch(error => {
-        console.error('Ошибка при восстановлении пользователя:', error);
-      });
-    }
+    onAuthStateChanged(this.auth, (user) => {
+      if(user){
+        console.log("User auto-restored:", user)
+        this.userInfo = user;
+      }
+    })
+
+    // const user: User | null = this.getUserFromLocalStorage();
+    // if (user) {
+    //   this.auth.updateCurrentUser(user).catch(error => {
+    //     console.error('Ошибка при восстановлении пользователя:', error);
+    //   });
+    // }
   }
 
   signInWithEmail(email: string, password: string){
