@@ -32,6 +32,8 @@ footer{
 .footer__container-top-block span{
   cursor: pointer;
   margin-bottom: 10px;
+  color: #858594;
+  font-size: 14px;
 }
 .footer__container-top-block span:hover{
   color: #a63afb;
@@ -46,7 +48,14 @@ footer{
   margin-right: 100px;
   text-align: left;
 }
-
+.footer__container-bottom-block-info span{
+  color: #858594;
+  font-size: 14px;
+}
+.footer__container-bottom-block span{
+  color: #858594;
+  font-size: 14px;
+}
 .footer__container-bottom-block-link{
   display: flex;
   margin-top: 20px;
