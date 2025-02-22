@@ -1,11 +1,13 @@
 
-
-<div class="product-grid">
-  <div *ngFor="let product of products" class="product-card">
-    <img src="favicon.ico" alt="{{product.name}}">
-    <h2>{{product.name}}</h2>
-    <p>{{product.description}}</p>
-    <p>${{product.price}}</p>
-    <button class="product-card-basket">В корзину</button>
+<div class="product__wrapper">
+  <div class="product-grid">
+    <div *ngFor="let product of products" class="product-card">
+      <img src="favicon.ico" alt="{{product.name}}">
+      <h2>{{product.name}}</h2>
+      <p>{{product.description}}</p>
+      <p>${{product.price}}</p>
+      <button class="product-card-basket">В корзину</button>
+    </div>
   </div>
+
 </div>

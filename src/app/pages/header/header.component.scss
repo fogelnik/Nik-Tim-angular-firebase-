@@ -264,14 +264,14 @@ header{
 
 .header__top-menu-country-modal {
   position: absolute;
-  top: 50px; /* Отрегулируйте позицию по необходимости */
+  top: 50px;
   right: 270px;
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  z-index: 1000; /* Убедитесь, что модальное окно находится над остальным содержимым */
+  z-index: 1000;
 }
 .header__top-menu-country-modal h4{
   margin-bottom: 15px;
