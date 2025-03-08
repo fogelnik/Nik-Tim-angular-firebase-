@@ -8,6 +8,7 @@ import {
   signOut, User, browserLocalPersistence, onAuthStateChanged
 } from "@angular/fire/auth";
 import {Router} from "@angular/router";
+import {BehaviorSubject} from "rxjs";
 
 
 @Injectable({
@@ -15,6 +16,8 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
   private googleAuthProvider = new GoogleAuthProvider();
+  private authState = new BehaviorSubject<User | null>(null);
+  public authState$ = this.authState.asObservable();
   public userInfo: User | null = null
 
   constructor(
@@ -28,6 +31,7 @@ export class AuthService {
     onAuthStateChanged(this.auth, (user) => {
       if(user){
         console.log("User auto-restored:", user)
+        this.authState.next(user);
         this.userInfo = user;
       }
     })
@@ -44,6 +48,7 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then(credential => {
           this.saveUserToLocalStorage(credential.user);
+        this.authState.next(credential.user);
           return credential;
         });
   }
@@ -52,6 +57,7 @@ export class AuthService {
     return signInWithPopup(this.auth,this.googleAuthProvider)
       .then(credential => {
         this.saveUserToLocalStorage(credential.user);
+        this.authState.next(credential.user);
         return credential;
       });
   }
@@ -60,6 +66,7 @@ export class AuthService {
     return createUserWithEmailAndPassword(this.auth, email, password)
       .then(credential => {
         this.saveUserToLocalStorage(credential.user);
+        this.authState.next(credential.user);
         return credential;
       });
   }
@@ -86,6 +93,7 @@ export class AuthService {
     return signOut(this.auth)
       .then(() => {
         this.clearUserFromLocalStorage();
+        this.authState.next(null);
         this.router.navigate(['/auth/sign-in']);
       })
       .catch(error => {

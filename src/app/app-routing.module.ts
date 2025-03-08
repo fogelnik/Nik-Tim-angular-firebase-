@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WelcomePageComponent} from "./pages/welcome-page/welcome-page.component";
-import {AuthRoutingModule} from "./pages/auth/auth-routing.module";
 import {AuthGuard, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
+import {BasketComponent} from "./pages/basket/basket.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo('/auth/sign-in')
 const routes: Routes = [
@@ -23,6 +23,10 @@ const routes: Routes = [
     data: {
       authGuardPipe: redirectToLogin
     }
+  },
+  {
+    path: 'basket',
+    component: BasketComponent // Добавляем маршрут для BasketComponent
   }
 
 ];

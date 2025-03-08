@@ -152,6 +152,7 @@ header{
 .header__bottom-block-burger h1{
   color: white;
   margin-right: 20px;
+  cursor: pointer;
 }
 .header__bottom-block-burger-menu{
   display: flex;
@@ -178,7 +179,7 @@ header{
   width: 30px;
   height: 3px;
   background-color: white;
-  margin: 5px auto;
+  margin: 8px auto;
   border-radius: 5px;
 }
 .burger-line-3{
@@ -188,6 +189,7 @@ header{
   margin: 0 auto;
   border-radius: 5px;
 }
+
 .header__bottom-block-search-input{
   width: 750px;
   padding: 20px;
@@ -262,40 +264,6 @@ header{
   justify-content: space-between;
 }
 
-.header__top-menu-country-modal {
-  position: absolute;
-  top: 50px;
-  right: 270px;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  z-index: 1000;
-}
-.header__top-menu-country-modal h4{
-  margin-bottom: 15px;
-}
-.header__top-menu-country-modal-block{
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.header__top-menu-country-modal-block img{
-  width: 26px;
-  margin-right: 10px;
-}
-.header__top-menu-country-modal-block-currency{
-  color: #777677;
-  margin-right: 15px;
-}
 
-//.modal {
-//  position: absolute;
-//  top: 50px;
-//  right: 0;
-//  background-color: white;
-//  border: 1px solid #ccc;
-//  padding: 20px;
-//  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-//}
+
+

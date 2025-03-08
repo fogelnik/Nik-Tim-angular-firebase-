@@ -1,13 +1,35 @@
 
 <div class="product__wrapper">
   <div class="product-grid">
-    <div *ngFor="let product of products" class="product-card">
-      <img src="favicon.ico" alt="{{product.name}}">
-      <h2>{{product.name}}</h2>
-      <p>{{product.description}}</p>
-      <p>${{product.price}}</p>
-      <button class="product-card-basket">В корзину</button>
+    <div class="product-card" *ngFor="let product of products; let i = index">
+      <div class="product-card__img">
+        <div>
+          <img [src]="product.image" alt="icon">
+        </div>
+      </div>
+      <div class="product-card__content">
+        <div class="product-card__content-price">
+          <span>{{product.price}} р.</span>
+        </div>
+        <div class="product-card__content-info">
+          <span class="product-card__content-info-name">{{product.name}}</span> / <span class="product-card__content-info-desc">{{product.description}}</span>
+        </div>
+        <div class="product-card__content-rating">
+          <span class="product-card__content-rating-star">
+            <img src="assets/icon/icons8-star-48.png">
+          </span>
+          <span class="product-card__content-rating-num">{{product.rating}}</span>
+          <span>•</span>
+          <span class="product-card__content-rating-votes">{{product.votes}} оценок</span>
+        </div>
+      </div>
+      <div class="product-card__btn">
+        <button class="product-card__btn-basket" [ngStyle]="{'background-color': buttonColor, 'color': textColor}" (click)="addToCart(product, $event)" style="display: flex; align-items: end; justify-content: center;">
+          <ng-container *ngIf="buttonText === 'Послезавтра'">
+            <img src="assets/icon/icons8-shopping-cart-32.png" alt="icon" style="margin-right: 5px; filter: invert(1); width: 22px; height: 22px">
+          </ng-container>
+          {{ buttonText }}</button>
+      </div>
     </div>
   </div>
-
 </div>
