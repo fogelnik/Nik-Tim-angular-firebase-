@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
+import {BasketService} from "../../services/basket.service";
 
 
 @Component({
@@ -17,12 +18,15 @@ import {Router} from "@angular/router";
 })
 export class WelcomePageComponent implements OnInit {
   products: any[] = [];
-  cart: any[] = [];
   buttonText: string = 'Послезавтра';
   buttonColor: string = '#a63afb';
   textColor: string = '#fdfdfd'
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private basketService: BasketService
+  ) {}
 
   ngOnInit() {
     this.dataService.getCards().subscribe((data: any) => {
@@ -30,8 +34,7 @@ export class WelcomePageComponent implements OnInit {
     });
   }
   addToCart(product: any, event: any) {
-    this.cart.push(product);
-    console.log('Продукт добавлен в корзину:', product);
+    this.basketService.addToCart(product);
 
     const button = event.target;
     button.innerText = 'в корзине';

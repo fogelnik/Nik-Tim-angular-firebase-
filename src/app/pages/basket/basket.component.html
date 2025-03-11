@@ -1,31 +1,54 @@
 
 <div class="basket">
   <div class="basket__wrapper">
-    <div class="basket__content">
+    <div *ngIf="items.length === 0" class="basket__null">
+      <div class="basket__null-content">
+        <div class="basket__null-content-title">
+          В корзине пока пусто
+        </div>
+        <div class="basket__null-content-subtitle">
+          Загляните на главную, чтобы выбрать товары или найдите нужное в поиске
+        </div>
+        <button (click)="navigateToWelcomePage()" class="basket__null-content-btn">
+          Перейти на главную
+        </button>
+      </div>
+    </div>
+    <div *ngIf="items.length > 0"  class="basket__content">
       <div class="basket__block-list">
         <div class="basket__block-list-title">
           <div>Корзина</div>
-          <span> 2 товара</span>
+          <span> {{ items.length }} товар(ов)</span>
         </div>
-        <div class="basket__block-cards">
-          <div class="basket__block-cards-img">
-            <img src="favicon.ico" alt="icon">
-          </div>
-          <div class="basket__block-cards-info">
-            <div class="basket__block-cards-desc">
-              Джинсы бананы широкие зауженные к низу оверсайз светлые, ЛВСВСВЫС
+        <div class="basket__block-cards" *ngFor="let item of items">
+          <div class="basket__block-cards-info" >
+            <div class="basket__block-cards-info-img">
+              <img [src]="item.image" alt="icon">
             </div>
-            <div class="basket__block-cards-color">
-              голубой
+            <div class="basket__block-cards-info-desc">
+              <div class="basket__block-cards-info-desc-name">
+                <span>{{ item.description }} ,</span>
+                <span> {{ item.name }}</span>
+              </div>
+              <div class="basket__block-cards-desc-color">
+                {{ item.color }}
+              </div>
+              <div class="basket__block-cards-info-desc-delivery">
+                Послезавтра
+              </div>
+              <div class="basket__block-cards-info-icon">
+                <img src="assets/icon/icon-heart-basket.png">
+                <img src="assets/icon/icon-trash.png">
+              </div>
             </div>
           </div>
-          <div class="basket__block-cards-quantity">
-            <div>-</div>
-            <span>1</span>
-            <div>+</div>
+          <div class="basket__block-cards-count">
+            <div class="basket__block-cards-count-delete">-</div>
+            <div>{{ itemCount }}</div>
+            <div class="basket__block-cards-count-add">+</div>
           </div>
           <div class="basket__block-cards-price">
-            123,04 р.
+            {{item.price}} р.
           </div>
         </div>
       </div>
@@ -39,12 +62,12 @@
           <span>Оплата картой</span>
         </div>
         <div class="basket__block-data-products">
-          <span>Товары, 0 шт.</span>
+          <span>Товары, {{ items.length }} шт.</span>
           <span></span>
         </div>
         <div class="basket__block-data-result-price">
           <span>Итого</span>
-          <span>0,00 р.</span>
+          <span> {{ sum }} р.</span>
         </div>
         <div class="basket__block-data-btn">
           <button class="basket__block-data-btn-order" type="submit">Заказать</button>
@@ -59,6 +82,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

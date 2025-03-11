@@ -48,7 +48,7 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then(credential => {
           this.saveUserToLocalStorage(credential.user);
-        this.authState.next(credential.user);
+          this.authState.next(credential.user);
           return credential;
         });
   }
