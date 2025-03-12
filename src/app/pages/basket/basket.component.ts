@@ -30,4 +30,8 @@ export class BasketComponent implements OnInit {
   navigateToWelcomePage() {
     this.router.navigate(['/']); // Навигация на WelcomePageComponent
   }
+  removeItem(index:number){
+    this.items.splice(index, 1);
+    this.updateTotalPrice();
+  }
 }

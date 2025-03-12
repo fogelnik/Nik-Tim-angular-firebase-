@@ -102,10 +102,15 @@
   color: #a5a5b0;
   font-size: 14px;
 }
+.basket__block-cards-info-icon{
+  display: flex;
+}
+.basket__block-cards-info-icon-favorites{
+  margin-right: 10px;
+}
 .basket__block-cards-info-icon img{
   height: 16px;
   width: 16px;
-  margin-right: 10px;
   cursor: pointer;
 }
 .basket__block-cards-info-icon img:last-child{

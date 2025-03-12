@@ -10,7 +10,7 @@ export class BasketService {
 
   addToCart(product: any) {
     this.cart.push(product);
-    console.log('Продукт добавлен в корзину:', product)
+    console.log('Продукт добавлен в корзину:', product);
   }
   getCart(){
     return this.cart;

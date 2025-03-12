@@ -20,7 +20,7 @@
           <div>Корзина</div>
           <span> {{ items.length }} товар(ов)</span>
         </div>
-        <div class="basket__block-cards" *ngFor="let item of items">
+        <div class="basket__block-cards" *ngFor="let item of items; let i = index">
           <div class="basket__block-cards-info" >
             <div class="basket__block-cards-info-img">
               <img [src]="item.image" alt="icon">
@@ -37,8 +37,12 @@
                 Послезавтра
               </div>
               <div class="basket__block-cards-info-icon">
-                <img src="assets/icon/icon-heart-basket.png">
-                <img src="assets/icon/icon-trash.png">
+                <div class="basket__block-cards-info-icon-favorites">
+                  <img src="assets/icon/icon-heart-basket.png">
+                </div>
+                <div class="basket__block-cards-info-icon-delete" (click)="removeItem(i)">
+                  <img src="assets/icon/icon-trash.png">
+                </div>
               </div>
             </div>
           </div>
