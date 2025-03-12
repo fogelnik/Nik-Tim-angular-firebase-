@@ -3,6 +3,7 @@ import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {CurrencyModalComponent} from "../currency-modal/currency-modal.component";
 import {AuthService} from "../../services/auth.service";
+import {BasketService} from "../../services/basket.service";
 
 
 @Component({
@@ -19,17 +20,24 @@ import {AuthService} from "../../services/auth.service";
 export class HeaderComponent implements OnInit{
   isAuthenticated: boolean = false;
   isModalVisible: boolean = false;
+  itemCount: number = 0;
 
-  constructor(private router: Router, private authService: AuthService){}
+  constructor(private router: Router, private authService: AuthService, private basketService: BasketService){}
 
   ngOnInit(): void {
     this.authService.authState$.subscribe(user => {
       this.isAuthenticated = !!user;
     });
+    this.updateItemCount();
   }
 
   navigateToBasket() {
     this.router.navigate(['/basket']);
+    this.updateItemCount();
+  }
+
+  updateItemCount() {
+    this.itemCount = this.basketService.getCart().length;
   }
 
   navigateToWelcomePage() {

@@ -201,6 +201,10 @@ header{
   display: flex;
   align-items: center;
 }
+.header__bottom-block-nav span:hover{
+  color: #fef1ff;
+  cursor: pointer;
+}
 .header__bottom-block-nav-addresses{
   display:flex;
   flex-direction: column;
@@ -250,10 +254,25 @@ header{
   color: #fef1ff;
 }
 .header__bottom-block-nav-basket{
+  position: relative;
   cursor: pointer;
   color: #e9acef;
   margin-right: 20px;
   transition: .2s;
+}
+.header__bottom-block-nav-basket-count{
+  position: absolute;
+  right: 11px;
+  top: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  color: white;
+  font-size: 11px;
+  background-color: orangered;
 }
 .header__bottom-block-nav-basket:hover{
   color: #fef1ff;
@@ -263,6 +282,8 @@ header{
   display: flex;
   justify-content: space-between;
 }
+
+
 
 
 
