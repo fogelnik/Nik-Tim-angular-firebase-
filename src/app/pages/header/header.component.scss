@@ -216,6 +216,7 @@ header{
   filter: invert(1);
 }
 .header__bottom-block-nav-sign-in{
+  position: relative;
   display:flex;
   flex-direction: column;
   align-items: center;

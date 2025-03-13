@@ -49,12 +49,14 @@
               Избранное
             </span>
           </div>
-          <div class="header__bottom-block-nav-sign-in" [routerLink]="['/auth/sign-in']">
+          <div class="header__bottom-block-nav-sign-in" (click)="onSignInClick()">
             <img src="/assets/user.png" alt="img">
             <span>
               {{ isAuthenticated ? 'Профиль' : 'Войти' }}
             </span>
+            <app-profile *ngIf="isProfileModalVisible"></app-profile>
           </div>
+
           <div class="header__bottom-block-nav-basket" (click)="navigateToBasket()">
             <img src="/assets/shopping-bag.png" alt="img">
             <span>

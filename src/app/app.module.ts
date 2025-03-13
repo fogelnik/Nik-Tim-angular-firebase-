@@ -13,6 +13,8 @@ import {HeaderComponent} from "./pages/header/header.component";
 import { CurrencyModalComponent } from './pages/currency-modal/currency-modal.component';
 import {HttpClientModule} from "@angular/common/http";
 import { BasketComponent } from './pages/basket/basket.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+
 
 
 
@@ -30,7 +32,8 @@ import { BasketComponent } from './pages/basket/basket.component';
     CurrencyModalComponent,
     WelcomePageComponent,
     HttpClientModule,
-    BasketComponent
+    BasketComponent,
+    ProfileComponent
   ],
   providers: [
     provideFirebaseApp(() => initializeApp({
