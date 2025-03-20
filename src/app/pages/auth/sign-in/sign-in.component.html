@@ -1,23 +1,23 @@
-
-<div class="sign-in__page">
-  <div class="sign-in__block">
-    <div class="sign-in__block-title">
-      <h2>Войти или создать профиль</h2>
-    </div>
+<div class="sign-in">
+  <div class="sign-in__page">
+    <div class="sign-in__block">
+      <div class="sign-in__block-title">
+        <h2>Войти или создать профиль</h2>
+      </div>
       <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="sign-in__form">
-        <div class="email-wrapper">
-          <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email" (input)="toggleClearButton()">
-          <button class="clear-email" type="button" (click)="clearEmail()" *ngIf="showClearButton">
+        <div class="sign-in__email-wrapper">
+          <input class="sign-in__form-email" type="email" placeholder="Email" formControlName="email" (input)="toggleClearButton()">
+          <button class="sign-in__clear-email" type="button" (click)="clearEmail()" *ngIf="showClearButton">
             &#10006;
           </button>
         </div>
-        <div class="password-wrapper">
-          <input [type]="passwordVisible ? 'text' : 'password'" class="sign-up__form-password" placeholder="Password" formControlName="password">
-          <button class="show-password" type="button" (click)="togglePasswordVisibility()">
-            <i class="eye-icon">{{ passwordVisible ? '👁️' : '👁️‍🗨️' }}</i>
+        <div class="sign-in__password-wrapper">
+          <input [type]="passwordVisible ? 'text' : 'password'" class="sign-in__form-password" placeholder="Password" formControlName="password">
+          <button class="sign-in__show-password" type="button" (click)="togglePasswordVisibility()">
+            <i class="sign-in__eye-icon">{{ passwordVisible ? '👁️' : '👁️‍🗨️' }}</i>
           </button>
         </div>
-        <div class="alert-danger" *ngIf="errorMessage">
+        <div class="sign-in__alert-danger" *ngIf="errorMessage">
           {{errorMessage}}
         </div>
         <button type="submit" class="sign-in__form-btn">Вход</button>
@@ -30,5 +30,7 @@
         <button class="sign-in__btn-sign-up" [routerLink]="['/auth/sign-up']" >Регистрация</button>
         <a class="sign-in__link-forgot-password" [routerLink]="['/auth/forgot-password']">Восстановить пароль</a>
       </div>
+    </div>
   </div>
 </div>
+

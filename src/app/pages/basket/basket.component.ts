@@ -33,7 +33,7 @@ export class BasketComponent implements OnInit {
     this.sum = parseFloat(this.sum.toFixed(2));
   }
   navigateToWelcomePage() {
-    this.router.navigate(['/']); // Навигация на WelcomePageComponent
+    this.router.navigate(['/']); // Навигация на ProductComponent
   }
   removeItem(index:number){
     this.basketService.removeFromCart(index);

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { ProductComponent } from './pages/product/product.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {FooterComponent} from "./pages/footer/footer.component";
@@ -30,7 +30,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FooterComponent,
     HeaderComponent,
     CurrencyModalComponent,
-    WelcomePageComponent,
+    ProductComponent,
     HttpClientModule,
     BasketComponent,
     ProfileComponent

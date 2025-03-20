@@ -6,9 +6,9 @@ import {BasketService} from "../../services/basket.service";
 
 
 @Component({
-  selector: 'app-welcome-page',
-  templateUrl: './welcome-page.component.html',
-  styleUrl: './welcome-page.component.scss',
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrl: './product.component.scss',
   imports: [
     NgForOf,
     NgStyle,
@@ -16,7 +16,7 @@ import {BasketService} from "../../services/basket.service";
   ],
   standalone: true
 })
-export class WelcomePageComponent implements OnInit {
+export class ProductComponent implements OnInit {
   products: any[] = [];
   buttonText: string = 'Послезавтра';
   buttonColor: string = '#a63afb';

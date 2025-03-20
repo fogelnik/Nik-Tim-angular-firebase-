@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit{
   }
 
   navigateToWelcomePage() {
-    this.router.navigate(['/']); // Навигация на WelcomePageComponent
+    this.router.navigate(['/']); // Навигация на ProductComponent
   }
 
   toggleModal() {

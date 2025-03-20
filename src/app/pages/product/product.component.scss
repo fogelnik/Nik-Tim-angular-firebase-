@@ -1,0 +1,179 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.product{
+  &__wrapper{
+    max-width: 1440px;
+    margin: 130px auto 0;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    padding: 50px 40px;
+  }
+  &__card{
+    width: 215px;
+    margin: 0 auto;
+  }
+  &__card-btn-basket{
+    width: 100%;
+    height: 42px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    margin-top: 10px;
+    color: #f6f6f6;
+    background-color: #a63afb;
+    cursor: pointer;
+    transition: .2s;
+  }
+  &__card-btn-basket:hover{
+    background-color: #b063f1;
+  }
+  &__card-img{
+    display: flex;
+    justify-content: center;
+    height: 285px;
+  }
+  &__card-img img{
+    border-radius: 10px;
+  }
+  &__card-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+  }
+  &__card-content-price span{
+    color: #0b0b0b;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  &__card-content-info {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 6px;
+    color: #9e9ea6;
+  }
+  &__card-content-info span {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__card-content-info-name{
+    margin-right: 3px;
+    font-size: 16px;
+    color: #0b0b0b;
+  }
+  &__card-content-info-desc{
+    margin-left: 3px;
+    color: #9e9ea6;
+  }
+  &__card-content-info &__card-content-info-name {
+    flex-shrink: 0; /* Чтобы имя не сжималось */
+  }
+
+  &__card-content-info &__card-content-info-desc {
+    flex-grow: 1; /* Чтобы описание занимало оставшееся место */
+  }
+  &__card-btn{
+    margin-top: 30px;
+  }
+  &__card-content-rating-star img{
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+  }
+  &__card-content-rating{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 8px;
+    color: #9e9ea6;
+  }
+  &__card-content-rating-num{
+    margin-right: 3px;
+    color: #0b0b0b;
+  }
+  &__card-content-rating-votes{
+    margin-left: 3px;
+  }
+}
+

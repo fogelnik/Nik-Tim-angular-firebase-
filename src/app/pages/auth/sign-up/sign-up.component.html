@@ -1,36 +1,38 @@
-
-<div class="sign-up__page">
-  <div class="sign-up__block">
-    <div class="sign-up__block-title">
-      <h2>Войти или создать профиль</h2>
-    </div>
-    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="sign-up__form">
-      <div class="email-wrapper">
-        <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email" (input)="toggleClearButton()">
-        <button class="clear-email" type="button" (click)="clearEmail()" *ngIf="showClearButton">
-          &#10006;
-        </button>
+<div class="sign-up">
+  <div class="sign-up__page">
+    <div class="sign-up__block">
+      <div class="sign-up__block-title">
+        <h2>Войти или создать профиль</h2>
       </div>
-<!--      <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email">-->
-      <div class="password-wrapper">
-        <input [type]="passwordVisible ? 'text' : 'password'" class="sign-up__form-password" placeholder="Password" formControlName="password">
-        <button class="show-password" type="button" (click)="togglePasswordVisibility()">
-          <i class="eye-icon">{{ passwordVisible ? '👁️' : '👁️‍🗨️' }}</i>
-        </button>
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="sign-up__form">
+        <div class="sign-up__email-wrapper">
+          <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email" (input)="toggleClearButton()">
+          <button class="sign-up__clear-email" type="button" (click)="clearEmail()" *ngIf="showClearButton">
+            &#10006;
+          </button>
+        </div>
+        <!--      <input class="sign-up__form-email" type="email" placeholder="Email" formControlName="email">-->
+        <div class="sign-up__password-wrapper">
+          <input [type]="passwordVisible ? 'text' : 'password'" class="sign-up__form-password" placeholder="Password" formControlName="password">
+          <button class="sign-up__show-password" type="button" (click)="togglePasswordVisibility()">
+            <i class="sign-up__eye-icon">{{ passwordVisible ? '👁️' : '👁️‍🗨️' }}</i>
+          </button>
+        </div>
+        <div class="sign-up__alert-danger" *ngIf="errorMessage">
+          {{errorMessage}}
+        </div>
+        <button type="submit" class="sign-up__form-btn">Регистрация</button>
+      </form>
+      <div class="sign-up__additional-features">
+        <button class="sign-up__btn-in-google" (click)="onSignInWithGoogle()" >Регистрация через Google</button>
+        <p>
+          У вас нет аккаунта?
+        </p>
+        <button class="sign-up__btn-sign-in" [routerLink]="['/auth/sign-in']" >Вход</button>
+        <a class="sign-up__link-forgot-password" [routerLink]="['/auth/forgot-password']">Восстановить пароль</a>
       </div>
-      <div class="alert-danger" *ngIf="errorMessage">
-        {{errorMessage}}
-      </div>
-      <button type="submit" class="sign-up__form-btn">Регистрация</button>
-    </form>
-    <div class="sign-up__additional-features">
-      <button class="sign-up__btn-in-google" (click)="onSignInWithGoogle()" >Регистрация через Google</button>
-      <p>
-        У вас нет аккаунта?
-      </p>
-      <button class="sign-up__btn-sign-in" [routerLink]="['/auth/sign-in']" >Вход</button>
-      <a class="sign-up__link-forgot-password" [routerLink]="['/auth/forgot-password']">Восстановить пароль</a>
     </div>
   </div>
 </div>
+
 

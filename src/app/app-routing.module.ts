@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {WelcomePageComponent} from "./pages/welcome-page/welcome-page.component";
+import {ProductComponent} from "./pages/product/product.component";
 import {AuthGuard, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
 import {BasketComponent} from "./pages/basket/basket.component";
 
@@ -8,7 +8,7 @@ const redirectToLogin = () => redirectUnauthorizedTo('/auth/sign-in')
 const routes: Routes = [
   {
     path: '',
-    component: WelcomePageComponent
+    component: ProductComponent
   },
   {
     path: 'auth',

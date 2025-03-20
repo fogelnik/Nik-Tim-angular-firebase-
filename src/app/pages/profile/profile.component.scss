@@ -76,15 +76,16 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
-.profile__modal{
-  position: absolute;
-  top: 60px;
-  left: -160px;
-  height: 400px;
-  width: 300px;
-  padding: 20px;
-  border: 1px seagreen;
-  background-color: #fbfbfb;
-  border-radius: 10px;
+.profile{
+  &__modal{
+    position: absolute;
+    top: 60px;
+    left: -160px;
+    height: 400px;
+    width: 300px;
+    padding: 20px;
+    background-color: #fbfbfb;
+    border-radius: 10px;
+  }
 }
+

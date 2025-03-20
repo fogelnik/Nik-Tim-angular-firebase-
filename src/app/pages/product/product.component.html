@@ -1,0 +1,38 @@
+<div class="product">
+  <div class="product__wrapper">
+    <div class="product__grid">
+      <div class="product__card" *ngFor="let product of products; let i = index">
+        <div class="product__card-img">
+          <div>
+            <img [src]="product.image" alt="icon">
+          </div>
+        </div>
+        <div class="product__card-content">
+          <div class="product__card-content-price">
+            <span>{{product.price}} р.</span>
+          </div>
+          <div class="product-card__content-info">
+            <span class="product-card__content-info-name">{{product.name}}</span> / <span class="product__card-content-info-desc">{{product.description}}</span>
+          </div>
+          <div class="product__card-content-rating">
+          <span class="product__card-content-rating-star">
+            <img src="assets/icon/icons8-star-48.png">
+          </span>
+            <span class="product__card-content-rating-num">{{product.rating}}</span>
+            <span>•</span>
+            <span class="product__card-content-rating-votes">{{product.votes}} оценок</span>
+          </div>
+        </div>
+        <div class="product__card-btn">
+          <button class="product__card-btn-basket" [ngStyle]="{'background-color': buttonColor, 'color': textColor}" (click)="addToCart(product, $event)" style="display: flex; align-items: end; justify-content: center;">
+            <ng-container *ngIf="buttonText === 'Послезавтра'">
+              <img src="assets/icon/icons8-shopping-cart-32.png" alt="icon" style="margin-right: 5px; filter: invert(1); width: 22px; height: 22px">
+            </ng-container>
+            {{ buttonText }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
