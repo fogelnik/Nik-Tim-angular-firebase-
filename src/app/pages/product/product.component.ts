@@ -18,6 +18,8 @@ import {Product} from "../product.model";
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
+  isLoading: boolean = true;
+  isModalOpen = false
   buttonText: string = 'Послезавтра';
   buttonColor: string = '#a63afb';
   textColor: string = '#fdfdfd'
@@ -29,8 +31,13 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.loadProducts()
+  }
+  loadProducts() {
+    this.isLoading = true;
     this.dataService.getCards().subscribe((data: Product[]) => {
       this.products = data;
+      this.isLoading = false;
     });
   }
   addToBasket(product: Product, event: any) {
@@ -42,9 +49,27 @@ export class ProductComponent implements OnInit {
     button.style.color = '#a73cfb'
   }
 
-  openQuickView(product: any): void {
-    // Логика открытия окна быстрого просмотра
-    console.log('Быстрый просмотр:', product);
-    // Здесь можно открыть модальное окно или отобразить всплывающее окно
+  // openQuickView(product: any): void {
+  //   // Логика открытия окна быстрого просмотра
+  //   console.log('Быстрый просмотр:', product);
+  //   // Здесь можно открыть модальное окно или отобразить всплывающее окно
+  // }
+
+  selectedProduct: Product | null = null; // Выбранный продукт
+
+  openQuickView(product: Product): void {
+    this.selectedProduct = product;
+    this.isModalOpen = true;
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+    this.selectedProduct = null;
+  }
+
+  private handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.closeModal();
+    }
   }
 }

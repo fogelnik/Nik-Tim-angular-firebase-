@@ -78,6 +78,30 @@ select {
 }
 
 .product{
+  &__spinner-container{
+    display: flex; /* Используем flexbox для выравнивания */
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    height: 100%; /* Высота контейнера соответствует высоте родительского блока */
+    }
+  &__spinner{
+    border: 6px solid #f3f3f3; /* Светлый фон */
+    border-top: 6px solid #9e1aeb; /* Цвет вращающегося элемента */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 300px auto;
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
   &__wrapper{
     max-width: 1440px;
     margin: 0 auto;
@@ -196,5 +220,91 @@ select {
   &__card-content-rating-votes{
     margin-left: 3px;
   }
+
+  &__modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  &__modal-content{
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 900px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    &-close{
+      position: absolute;
+      top: 0px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #8f8f9d;
+    }
+  }
+  &__modal-content-block-right{
+    display: flex;
+    flex-direction: column;
+    padding: 28px 40px;
+    width: 50%;
+  }
+  &__modal-content-block-right-info{
+    display: flex;
+    align-items: center; /* Для выравнивания по вертикали */
+    white-space: nowrap; /* Запрещает перенос текста на новую строку */
+    overflow: hidden; /* Обрезает содержимое, которое выходит за пределы контейнера */
+
+    &-name {
+      margin-right: 8px;
+    }
+    &-desc{
+      text-overflow: ellipsis; /* Добавляет многоточие */
+      overflow: hidden; /* Обеспечивает обрезку текста */
+      white-space: nowrap; /* Запрещает перенос текста */
+    }
+  }
+  &__modal-content-block-left{
+    & img{
+      border-radius: 8px 0 0 8px;
+      height: 600px;
+    }
+  }
+  &__modal-content-block-right-rating{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    &-star img{
+      height: 16px;
+      margin-right: 5px;
+    }
+  }
+  &__modal-content-block-right-price{
+    margin: 10px 0;
+  }
+  &__modal-content-block-right-btn{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background-color: #a53af9;
+    border-radius: 8px;
+    border: 0;
+    transition: .2s;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  &__modal-content-block-right-btn:hover{
+    background-color: #ad4bfa;
+  }
+
 }
 

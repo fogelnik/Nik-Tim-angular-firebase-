@@ -1,5 +1,9 @@
 <div class="product">
-  <div class="product__wrapper">
+  <div class="product__spinner-container">
+    <div *ngIf="isLoading" class="product__spinner"></div>
+  </div>
+
+  <div *ngIf="!isLoading" class="product__wrapper">
     <div class="product__grid">
       <div class="product__card" *ngFor="let product of products; let i = index">
         <div class="product__card-img">
@@ -34,6 +38,38 @@
             {{ buttonText }}
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isModalOpen" class="product__modal">
+    <div class="product__modal-content">
+      <span class="product__modal-content-close" (click)="closeModal()">&times;</span>
+      <div class="product__modal-content-block-left">
+        <img [src]="selectedProduct?.image" alt="Product-image"/>
+      </div>
+      <div class="product__modal-content-block-right">
+        <div class="product__modal-content-block-right-info">
+          <h3 class="product__modal-content-block-right-info-name">{{ selectedProduct?.name }}</h3> / <h3 class="product__modal-content-block-right-info-desc">{{ selectedProduct?.description }}</h3>
+        </div>
+        <div class="product__modal-content-block-right-rating">
+          <span class="product__modal-content-block-right-rating-star">
+            <img src="assets/icon/icons8-star-48.png">
+          </span>
+          <span class="product__modal-content-block-right-rating-num">
+            {{ selectedProduct?.rating }}
+          </span>
+          <span class="product__modal-content-block-right-rating-votes">
+            {{ selectedProduct?.votes }} оценок
+          </span>
+        </div>
+        <div class="product__modal-content-block-right-price">
+          <h2>{{ selectedProduct?.price }} р.</h2>
+        </div>
+        <span> 1 шт.</span>
+        <div>
+          <button class="product__modal-content-block-right-btn">Добавить в корзину</button>
+        </div>
+
       </div>
     </div>
   </div>
