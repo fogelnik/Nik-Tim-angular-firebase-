@@ -81,6 +81,7 @@ select {
   background-image: url("https://static-basket-01.wbbasket.ru/vol2/site/i/v3/header/background_oblaka_2025.webp");
   position: fixed;
   width: 100%;
+  z-index: 99;
 
   &__wrapper{
     max-width: 1440px;

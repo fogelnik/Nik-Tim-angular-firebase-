@@ -11,8 +11,8 @@
           <div class="product__card-content-price">
             <span>{{product.price}} р.</span>
           </div>
-          <div class="product-card__content-info">
-            <span class="product-card__content-info-name">{{product.name}}</span> / <span class="product__card-content-info-desc">{{product.description}}</span>
+          <div class="product__card-content-info">
+            <span class="product__card-content-info-name">{{product.name}}</span> / <span class="product__card-content-info-desc">{{product.description}}</span>
           </div>
           <div class="product__card-content-rating">
           <span class="product__card-content-rating-star">
@@ -23,8 +23,11 @@
             <span class="product__card-content-rating-votes">{{product.votes}} оценок</span>
           </div>
         </div>
+        <div class="product__card-quick-view-button" (click)="openQuickView(product)">
+          Быстрый просмотр
+        </div>
         <div class="product__card-btn">
-          <button class="product__card-btn-basket" [ngStyle]="{'background-color': buttonColor, 'color': textColor}" (click)="addToCart(product, $event)" style="display: flex; align-items: end; justify-content: center;">
+          <button class="product__card-btn-basket" [ngStyle]="{'background-color': buttonColor, 'color': textColor}" (click)="addToBasket(product, $event)" style="display: flex; align-items: end; justify-content: center;">
             <ng-container *ngIf="buttonText === 'Послезавтра'">
               <img src="assets/icon/icons8-shopping-cart-32.png" alt="icon" style="margin-right: 5px; filter: invert(1); width: 22px; height: 22px">
             </ng-container>

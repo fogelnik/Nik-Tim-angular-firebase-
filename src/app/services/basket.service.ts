@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import {Product} from "../pages/product.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
-  private cart: any[] = [];
+  private cart: Product[] = [];
 
   constructor() {
     this.loadCartFromLocalStorage();
   }
 
-  addToCart(product: any) {
+  addToCart(product: Product) {
     this.cart.push(product);
     this.saveCartToLocalStorage();
     console.log('Продукт добавлен в корзину:', product);
@@ -30,7 +31,7 @@ export class BasketService {
   private loadCartFromLocalStorage() {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
-      this.cart = JSON.parse(savedCart);
+      this.cart = JSON.parse(savedCart) as Product[];
     }
   }
 }

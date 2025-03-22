@@ -1,1 +1,30 @@
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Задаем полную высоту */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-header {
+  position: fixed; /* Фиксируем хедер */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Указываем z-index, чтобы хедер был выше других элементов */
+}
+
+.content {
+  margin-top: 150px; /* Учитываем высоту хедера */
+  margin-bottom: 50px; /* Учитываем высоту футера */
+  flex: 1; /* Занимаем оставшееся пространство */
+}
+
+app-footer {
+  bottom: 0;
+}

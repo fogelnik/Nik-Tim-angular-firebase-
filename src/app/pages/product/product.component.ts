@@ -3,7 +3,7 @@ import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
 import {BasketService} from "../../services/basket.service";
-
+import {Product} from "../product.model";
 
 @Component({
   selector: 'app-product',
@@ -17,7 +17,7 @@ import {BasketService} from "../../services/basket.service";
   standalone: true
 })
 export class ProductComponent implements OnInit {
-  products: any[] = [];
+  products: Product[] = [];
   buttonText: string = 'Послезавтра';
   buttonColor: string = '#a63afb';
   textColor: string = '#fdfdfd'
@@ -29,16 +29,22 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dataService.getCards().subscribe((data: any) => {
+    this.dataService.getCards().subscribe((data: Product[]) => {
       this.products = data;
     });
   }
-  addToCart(product: any, event: any) {
+  addToBasket(product: Product, event: any) {
     this.basketService.addToCart(product);
 
     const button = event.target;
     button.innerText = 'в корзине';
     button.style.backgroundColor = '#f2e5fd';
     button.style.color = '#a73cfb'
+  }
+
+  openQuickView(product: any): void {
+    // Логика открытия окна быстрого просмотра
+    console.log('Быстрый просмотр:', product);
+    // Здесь можно открыть модальное окно или отобразить всплывающее окно
   }
 }

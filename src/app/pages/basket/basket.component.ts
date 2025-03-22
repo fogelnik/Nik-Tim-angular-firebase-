@@ -29,7 +29,10 @@ export class BasketComponent implements OnInit {
     this.updateTotalPrice();
   }
   updateTotalPrice() {
-    this.sum = this.items.reduce((acc, item) => acc + item.price, 0);
+    this.sum = 0;
+    for (let i = 0; i < this.items.length; i++) {
+      this.sum += this.items[i].price;
+    }
     this.sum = parseFloat(this.sum.toFixed(2));
   }
   navigateToWelcomePage() {
