@@ -243,7 +243,7 @@ select {
 
     &-close{
       position: absolute;
-      top: 0px;
+      top: 0;
       right: 10px;
       font-size: 30px;
       cursor: pointer;
@@ -263,9 +263,10 @@ select {
     overflow: hidden; /* Обрезает содержимое, которое выходит за пределы контейнера */
 
     &-name {
-      margin-right: 8px;
+      margin-right: 5px;
     }
     &-desc{
+      margin-left: 5px;
       text-overflow: ellipsis; /* Добавляет многоточие */
       overflow: hidden; /* Обеспечивает обрезку текста */
       white-space: nowrap; /* Запрещает перенос текста */
@@ -284,6 +285,9 @@ select {
 
     &-star img{
       height: 16px;
+      margin-right: 5px;
+    }
+    &-num{
       margin-right: 5px;
     }
   }

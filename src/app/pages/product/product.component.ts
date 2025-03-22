@@ -49,12 +49,6 @@ export class ProductComponent implements OnInit {
     button.style.color = '#a73cfb'
   }
 
-  // openQuickView(product: any): void {
-  //   // Логика открытия окна быстрого просмотра
-  //   console.log('Быстрый просмотр:', product);
-  //   // Здесь можно открыть модальное окно или отобразить всплывающее окно
-  // }
-
   selectedProduct: Product | null = null; // Выбранный продукт
 
   openQuickView(product: Product): void {

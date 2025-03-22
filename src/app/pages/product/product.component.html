@@ -65,9 +65,11 @@
         <div class="product__modal-content-block-right-price">
           <h2>{{ selectedProduct?.price }} р.</h2>
         </div>
-        <span> 1 шт.</span>
+        <span>
+          Цвет: {{ selectedProduct?.color}}
+        </span>
         <div>
-          <button class="product__modal-content-block-right-btn">Добавить в корзину</button>
+          <button *ngIf="selectedProduct" class="product__modal-content-block-right-btn" (click)="addToBasket(selectedProduct, $event)">Добавить в корзину</button>
         </div>
 
       </div>
