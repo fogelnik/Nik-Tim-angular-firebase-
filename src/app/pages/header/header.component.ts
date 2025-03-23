@@ -66,4 +66,7 @@ export class HeaderComponent implements OnInit{
       this.router.navigate(['/auth/sign-in']);
     }
   }
+  navigateToAddresses() {
+    this.router.navigate(['/addresses']); // Переход на компонент AddressesComponent
+  }
 }

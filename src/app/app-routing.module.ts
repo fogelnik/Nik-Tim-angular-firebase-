@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProductComponent} from "./pages/product/product.component";
 import {AuthGuard, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
 import {BasketComponent} from "./pages/basket/basket.component";
+import {AddressesComponent} from "./pages/addresses/addresses.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo('/auth/sign-in')
 const routes: Routes = [
@@ -27,7 +28,12 @@ const routes: Routes = [
   {
     path: 'basket',
     component: BasketComponent // Добавляем маршрут для BasketComponent
-  }
+  },
+  {
+    path: 'addresses',
+    component: AddressesComponent // Добавляем маршрут для BasketComponent
+  },
+
 
 ];
 

@@ -1,0 +1,180 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.addresses{
+  &__wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 38px;
+  }
+  &__block-nav{
+    display: flex;
+    margin-bottom: 24px;
+
+    span{
+      margin-right: 40px;
+      color: #282828;
+      cursor: pointer;
+      transition: .2s;
+      font-size: 17px;
+    }
+    span:last-child{
+      margin-right: 0;
+    }
+    span:hover{
+      color: #ac47fb;
+    }
+  }
+  &__info-card{
+    position: relative;
+    width: 100%;
+    background: linear-gradient(89.51deg, #E56B31 2.39%, #BE3690 99.79%);;
+    color: white;
+    border-radius: 40px;
+    padding: 44px 68px 68px;
+    margin-top: 20px;
+
+    h1{
+      margin: 0 0 44px;
+      font-size: 42px;
+      line-height: 56px;
+      width: 950px;
+    }
+    &-services{
+      display: flex;
+
+      div{
+        width: 190px;
+        margin-right: 100px;
+        color: #FFFFFF;
+        font-size: 18px;
+        line-height: 24px;
+      }
+      div:last-child{
+        width: 145px;
+        margin-right: 0;
+      }
+    }
+    &-img{
+      top: 47px;
+      right: 20px;
+      z-index: 1;
+      position: absolute;
+    }
+  }
+  &__info-card-btn{
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 20px;
+    color: white;
+    padding: 15px 60px;
+    margin-top: 44px;
+    transition: background 0.2s ease;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+  }
+  &__info-card-btn:hover{
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  &__pick-up-point{
+    margin: 24px 0 44px;
+
+    & h2{
+      margin-bottom: 6px;
+      font-size: 46px;
+      font-weight: 600;
+      line-height: 61px;
+    }
+
+    span{
+      color: #868695;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+  &__delivery-info{
+      h2{
+        font-size: 32px;
+        line-height: 36px;
+        margin-bottom: 16px;
+      }
+  }
+}

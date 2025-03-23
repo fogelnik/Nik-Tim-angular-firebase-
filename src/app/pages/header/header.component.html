@@ -37,7 +37,7 @@
           <input class="header__bottom-block-search-input" type="search" placeholder="Найти на Wildberries">
         </div>
         <div class="header__bottom-block-nav">
-          <div class="header__bottom-block-nav-addresses">
+          <div class="header__bottom-block-nav-addresses" (click)="navigateToAddresses()">
             <img src="/assets/location.png" alt="img">
             <span>
               {{ isAuthenticated ? 'Доставки' : 'Адреса' }}
