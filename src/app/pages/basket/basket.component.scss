@@ -79,6 +79,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 300px;
   }
   &__block-cards-info-img{
     height: 128px;
@@ -94,6 +95,7 @@
   }
   &__block-cards-info-desc-name{
     margin-bottom: 10px;
+    line-height: 22px;
   }
   &__block-cards-desc-color{
     color: #a5a5b0;
@@ -147,6 +149,8 @@
   }
   &__block-cards-price{
     font-weight: bold;
+    min-width: 120px;
+    text-align: center;
   }
 
   &__block-data{

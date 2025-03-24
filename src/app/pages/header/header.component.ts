@@ -5,6 +5,7 @@ import {CurrencyModalComponent} from "../currency-modal/currency-modal.component
 import {AuthService} from "../../services/auth.service";
 import {BasketService} from "../../services/basket.service";
 import {ProfileComponent} from "../profile/profile.component";
+import {ProfileModalService} from "../../services/profile-modal.service";
 
 
 @Component({
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit{
   isProfileModalVisible: boolean = false;
   itemCount: number = 0;
 
-  constructor(private router: Router, private authService: AuthService, private basketService: BasketService){}
+  constructor(private router: Router, private authService: AuthService, private basketService: BasketService, public profileModalService: ProfileModalService){}
 
   ngOnInit(): void {
     this.authService.authState$.subscribe(user => {

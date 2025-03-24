@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
+import {ProfileModalService} from "../../services/profile-modal.service";
 
 @Component({
   selector: 'app-profile',
@@ -6,6 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.scss',
   standalone: true
 })
-export class ProfileComponent {
 
+
+export class ProfileComponent {
+  public authService = inject(AuthService);
+
+  constructor(public profileModalService: ProfileModalService) {
+  }
+
+  onSignOut() {
+    this.authService.signOut();
+    this.profileModalService.toggleProfileModal();
+  }
 }

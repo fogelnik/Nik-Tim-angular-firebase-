@@ -1,7 +1,51 @@
 
 <div class="profile">
   <div class="profile__modal">
-    <button class="profile__modal-sign-out">Выйти</button>
+    <div class="profile__modal-title">
+      <img src="assets/icon-modal-profile/user.png" alt="user"/>
+      <div class="profile__modal-title-name">
+        <h2>{{authService.userInfo?.email}}</h2>
+        <span> > </span>
+      </div>
+      <div class="profile__modal-title-notifications">
+        <img src="assets/icon-modal-profile/bell.png">
+      </div>
+    </div>
+    <div class="profile__modal-block">
+      <div class="profile__modal-purchases">
+        <img src="assets/icon-modal-profile/shopping-bag.png" alt="shopping-bag"/>
+        <span>Покупки</span>
+      </div>
+      <div class="profile__modal-favorites">
+        <img  src="https://img.icons8.com/ios-filled/50/like--v1.png" alt="like-v1"/>
+        <span>Избранное</span>
+      </div>
+      <div class="profile__modal-favorite-brands">
+        <img src="https://img.icons8.com/ios-filled/50/likes-folder--v1.png" alt="likes-folder-v1"/>
+        <span>Любимые бренды</span>
+      </div>
+      <div class="profile__modal-delivery">
+        <img  src="https://img.icons8.com/ios-filled/50/package-delivery-logistics.png" alt="package-delivery-logistics"/>
+        <span>Доставки</span>
+      </div>
+      <div class="profile__modal-balance">
+        <img  src="https://img.icons8.com/ios-filled/50/refund.png" alt="refund"/>
+        <span>Баланс</span>
+      </div>
+
+
+      <div class="profile__modal-payment-methods">
+        <img  src="https://img.icons8.com/sf-black-filled/64/bank-card-back-side.png" alt="bank-card-back-side"/>
+        <span>Способы оплаты</span>
+      </div>
+    </div>
+
+    <div class="profile__modal-reviews">
+      <span>Обращения</span>
+      <span>Отзывы и вопросы</span>
+    </div>
+
+    <button class="profile__modal-sign-out" type="submit" (click)="onSignOut()">Выйти</button>
   </div>
 </div>
 
