@@ -66,4 +66,28 @@ export class ProductComponent implements OnInit {
       this.closeModal();
     }
   }
+
+
+
+  onMouseMove(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+
+    // Вычисляем координаты мыши внутри элемента
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    // Устанавливаем transform-origin
+    target.style.transformOrigin = `${x}% ${y}%`;
+    target.style.transform = 'scale(1.5)'; // Увеличение в 2 раза
+  }
+
+  onMouseLeave(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+
+    // Сбрасываем transform при уходе мыши
+    target.style.transformOrigin = 'center';
+    target.style.transform = 'scale(1)'; // Возвращаем к оригинальному размеру
+  }
+
 }

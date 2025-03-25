@@ -273,7 +273,12 @@ select {
     }
   }
   &__modal-content-block-left{
+    position: relative;
+    overflow: hidden;
     & img{
+      display: block;
+      width: 100%;
+      transition: transform 0.1s ease, transform-origin 0.1s ease;
       border-radius: 8px 0 0 8px;
       height: 600px;
     }
