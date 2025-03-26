@@ -56,7 +56,7 @@
             <div class="basket__block-cards-count-add" (click)="addItem(i)">+</div>
           </div>
           <div class="basket__block-cards-price">
-            {{item.price}} р.
+            {{(item.price * item.itemCount).toFixed(2)}} р.
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="basket__block-data-result-price">
           <span>Итого</span>
-          <span> {{ sum }} р.</span>
+          <span> {{ (sum).toFixed(2) }} р.</span>
         </div>
         <div class="basket__block-data-btn">
           <button class="basket__block-data-btn-order" type="submit">Заказать</button>

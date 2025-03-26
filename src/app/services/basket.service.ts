@@ -6,9 +6,9 @@ import {Product} from "../pages/product.model";
 })
 export class BasketService {
   private cart: Product[] = [];
+  basketCardCount = 0;
 
   constructor() {
-    this.loadCartFromLocalStorage();
   }
 
   addToCart(product: Product) {
@@ -17,6 +17,8 @@ export class BasketService {
     console.log('Продукт добавлен в корзину:', product);
   }
   getCart(){
+    this.loadCartFromLocalStorage();
+    this.basketCardCount = this.cart.length
     return this.cart;
   }
 
@@ -25,6 +27,7 @@ export class BasketService {
     this.saveCartToLocalStorage();
     console.log('Продукт удален из корзины:', index);
   }
+
   private saveCartToLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }

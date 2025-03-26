@@ -23,7 +23,6 @@ import {ProfileModalService} from "../../services/profile-modal.service";
 export class HeaderComponent implements OnInit{
   isAuthenticated: boolean = false;
   isModalVisible: boolean = false;
-  isProfileModalVisible: boolean = false;
   itemCount: number = 0;
 
   constructor(private router: Router, private authService: AuthService, private basketService: BasketService, public profileModalService: ProfileModalService){}
@@ -32,16 +31,20 @@ export class HeaderComponent implements OnInit{
     this.authService.authState$.subscribe(user => {
       this.isAuthenticated = !!user;
     });
-    this.updateItemCount();
+    // this.updateItemCount();
   }
 
   navigateToBasket() {
     this.router.navigate(['/basket']);
-    this.updateItemCount();
+    // this.updateItemCount();
   }
 
-  updateItemCount() {
-    this.itemCount = this.basketService.getCart().length;
+  // updateItemCount() {
+  //   this.itemCount = this.basketService.getCart().length;
+  // }
+
+  get test():number {
+    return this.basketService.getCart().length
   }
 
   navigateToWelcomePage() {
