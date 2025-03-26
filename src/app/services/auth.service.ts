@@ -35,13 +35,6 @@ export class AuthService {
         this.userInfo = user;
       }
     })
-
-    // const user: User | null = this.getUserFromLocalStorage();
-    // if (user) {
-    //   this.auth.updateCurrentUser(user).catch(error => {
-    //     console.error('Ошибка при восстановлении пользователя:', error);
-    //   });
-    // }
   }
 
   signInWithEmail(email: string, password: string){

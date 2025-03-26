@@ -16,6 +16,13 @@ export class ProfileComponent {
   constructor(public profileModalService: ProfileModalService) {
   }
 
+  getUserName(): string{
+    if(this.authService.userInfo?.email){
+      return this.authService.userInfo?.email.split("@")[0];
+    }
+    return "Гость";
+  }
+
   onSignOut() {
     this.authService.signOut();
     this.profileModalService.closeModal()
