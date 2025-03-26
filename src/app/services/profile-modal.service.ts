@@ -6,11 +6,19 @@ import { Injectable } from '@angular/core';
 
 
 export class ProfileModalService {
+  isModalVisible: boolean = false;
 
-  isProfileModalVisible = false;
   constructor() { }
 
-  toggleProfileModal() {
-    this.isProfileModalVisible = !this.isProfileModalVisible;
+  openModal(): void {
+    this.isModalVisible = true;
+  }
+
+  closeModal(): void {
+    this.isModalVisible = false;
+  }
+
+  toggleModal(): void {
+    this.isModalVisible = !this.isModalVisible;
   }
 }

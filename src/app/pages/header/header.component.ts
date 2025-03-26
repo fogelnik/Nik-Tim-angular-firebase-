@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {CurrencyModalComponent} from "../currency-modal/currency-modal.component";
@@ -52,8 +52,16 @@ export class HeaderComponent implements OnInit{
     this.isModalVisible = !this.isModalVisible;
   }
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.isModalVisible = false;
+      this.profileModalService.closeModal()
+    }
+  }
+
   toggleProfileModal(){
-    this.isProfileModalVisible = !this.isProfileModalVisible;
+    this.profileModalService.toggleModal()
   }
 
   navigateToFavorites() {

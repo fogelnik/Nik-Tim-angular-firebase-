@@ -139,16 +139,29 @@ select {
     }
   }
   &__card-btn-basket{
-    width: 100%;
-    height: 42px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 0;
-    margin-top: 10px;
-    color: #f6f6f6;
+    display: flex;
+    align-items: end;
+    justify-content: center;
     background-color: #a63afb;
+    color: #fdfdfd;
+    border: none;
+    padding: 10px;
     cursor: pointer;
-    transition: .2s;
+    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &-icon{
+      margin-right: 5px;
+      filter: invert(1);
+      width: 22px;
+      height: 22px;
+
+    }
+    & in-cart{
+      background-color: #f2e5fd;
+      color: #a73cfb;
+    }
   }
   &__card-btn-basket:hover{
     background-color: #b063f1;

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgIf, NgStyle} from "@angular/common";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
 import {BasketService} from "../../services/basket.service";
@@ -12,7 +12,8 @@ import {Product} from "../product.model";
   imports: [
     NgForOf,
     NgStyle,
-    NgIf
+    NgIf,
+    NgClass
   ],
   standalone: true
 })
@@ -21,8 +22,6 @@ export class ProductComponent implements OnInit {
   isLoading: boolean = true;
   isModalOpen = false
   buttonText: string = 'Послезавтра';
-  buttonColor: string = '#a63afb';
-  textColor: string = '#fdfdfd'
 
   constructor(
     private dataService: DataService,
@@ -61,13 +60,12 @@ export class ProductComponent implements OnInit {
     this.selectedProduct = null;
   }
 
-  private handleKeyDown(event: KeyboardEvent): void {
-    if (event.key === 'Escape') {
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === 'Escape') { // Проверяем, нажата ли клавиша Escape
       this.closeModal();
     }
   }
-
-
 
   onMouseMove(event: MouseEvent): void {
     const target = event.target as HTMLElement;
@@ -89,5 +87,4 @@ export class ProductComponent implements OnInit {
     target.style.transformOrigin = 'center';
     target.style.transform = 'scale(1)'; // Возвращаем к оригинальному размеру
   }
-
 }

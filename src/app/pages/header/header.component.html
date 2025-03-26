@@ -54,7 +54,7 @@
             <span>
               {{ isAuthenticated ? 'Профиль' : 'Войти' }}
             </span>
-            <app-profile *ngIf="isProfileModalVisible"></app-profile>
+            <app-profile *ngIf="profileModalService.isModalVisible"></app-profile>
           </div>
 
           <div class="header__bottom-block-nav-basket" (click)="navigateToBasket()">

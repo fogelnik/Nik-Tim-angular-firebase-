@@ -18,6 +18,6 @@ export class ProfileComponent {
 
   onSignOut() {
     this.authService.signOut();
-    this.profileModalService.toggleProfileModal();
+    this.profileModalService.closeModal()
   }
 }
