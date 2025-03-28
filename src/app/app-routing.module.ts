@@ -4,6 +4,7 @@ import {ProductComponent} from "./pages/product/product.component";
 import {AuthGuard, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
 import {BasketComponent} from "./pages/basket/basket.component";
 import {AddressesComponent} from "./pages/addresses/addresses.component";
+import {HomeComponent} from "./pages/dashboard/home/home.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo('/auth/sign-in')
 const routes: Routes = [
@@ -13,28 +14,44 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module')
-      .then(m => m.AuthModule)
+    children: [
+      {
+        path: '',
+        redirectTo: 'auth/sign-in',
+        pathMatch: "full",
+      },
+      {
+        path: 'sign-in',
+        loadComponent: () => import('./pages/auth/sign-in/sign-in.component').then(m => m.SignInComponent),
+      },
+      {
+        path: 'sign-up',
+        loadComponent: () => import('./pages/auth/sign-up/sign-up.component').then(m => m.SignUpComponent),
+      },
+      {
+        path: 'forgot-password',
+        loadComponent: () => import('./pages/auth/forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent),
+      },
+    ]
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module')
-      .then(m => m.DashboardModule),
+    loadComponent: () => import('./pages/dashboard/home/home.component')
+      .then(m => m.HomeComponent),
     canActivate: [AuthGuard],
+
     data: {
       authGuardPipe: redirectToLogin
     }
   },
   {
     path: 'basket',
-    component: BasketComponent // Добавляем маршрут для BasketComponent
+    component: BasketComponent
   },
   {
     path: 'addresses',
-    component: AddressesComponent // Добавляем маршрут для BasketComponent
+    component: AddressesComponent
   },
-
-
 ];
 
 @NgModule({

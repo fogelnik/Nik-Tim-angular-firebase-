@@ -4,7 +4,7 @@
     <div class="profile__modal-title">
       <img src="assets/icon-modal-profile/user.png" alt="user"/>
       <div class="profile__modal-title-name">
-        <h2>{{getUserName()}}</h2>
+        <h2>{{authService.userInfo?.email | userName}}</h2>
         <span> > </span>
       </div>
       <div class="profile__modal-title-notifications">

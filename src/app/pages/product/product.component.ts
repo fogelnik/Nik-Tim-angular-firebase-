@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   isLoading: boolean = true;
   isModalOpen = false
+  isProductInCart: boolean = false;
   buttonText: string = 'Послезавтра';
 
   constructor(
@@ -40,12 +41,19 @@ export class ProductComponent implements OnInit {
     });
   }
   addToBasket(product: Product, event: any) {
-    this.basketService.addToCart(product);
 
     const button = event.target;
-    button.innerText = 'в корзине';
-    button.style.backgroundColor = '#f2e5fd';
-    button.style.color = '#a73cfb'
+
+    if(!this.isProductInCart){
+      this.basketService.addToCart(product);
+      this.isProductInCart = true;
+
+      button.innerText = 'в корзине';
+      button.style.backgroundColor = '#f2e5fd';
+      button.style.color = '#a73cfb'
+    }else {
+      this.router.navigate(['/basket']);
+    }
   }
 
   selectedProduct: Product | null = null; // Выбранный продукт
@@ -58,6 +66,14 @@ export class ProductComponent implements OnInit {
   closeModal(): void {
     this.isModalOpen = false;
     this.selectedProduct = null;
+  }
+
+  onBackdropClick(event: MouseEvent){
+    const target = event.target as HTMLElement;
+
+    if(target.classList.contains('product__modal')){
+      this.closeModal();
+    }
   }
 
   @HostListener('document:keydown', ['$event'])

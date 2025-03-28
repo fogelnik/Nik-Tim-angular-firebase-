@@ -4,6 +4,8 @@
   </div>
 
   <div *ngIf="!isLoading" class="product__wrapper">
+
+
     <div class="product__grid">
       <div class="product__card" *ngFor="let product of products; let i = index">
         <div class="product__card-img">
@@ -43,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="isModalOpen" class="product__modal">
+  <div *ngIf="isModalOpen" class="product__modal" (click)="onBackdropClick($event)">
     <div class="product__modal-content">
       <span class="product__modal-content-close" (click)="closeModal()">&times;</span>
       <div class="product__modal-content-block-left">

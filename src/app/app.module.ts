@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { BasketComponent } from './pages/basket/basket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AddressesComponent } from './pages/addresses/addresses.component';
+import { UserNamePipe } from './pages/Pipes/user-name.pipe';
 
 
 
@@ -35,7 +36,10 @@ import { AddressesComponent } from './pages/addresses/addresses.component';
     HttpClientModule,
     BasketComponent,
     ProfileComponent,
-    AddressesComponent
+    AddressesComponent,
+    UserNamePipe,
+
+
   ],
   providers: [
     provideFirebaseApp(() => initializeApp({
@@ -50,6 +54,7 @@ import { AddressesComponent } from './pages/addresses/addresses.component';
     provideFirestore(() => getFirestore()),
   ],
   exports: [
+    UserNamePipe
 
   ],
   bootstrap: [AppComponent]

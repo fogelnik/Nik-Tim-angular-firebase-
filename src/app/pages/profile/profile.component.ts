@@ -1,26 +1,22 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Pipe, PipeTransform} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {ProfileModalService} from "../../services/profile-modal.service";
+import {UserNamePipe} from "../Pipes/user-name.pipe";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
+  imports: [
+    UserNamePipe
+  ],
   standalone: true
 })
-
 
 export class ProfileComponent {
   public authService = inject(AuthService);
 
   constructor(public profileModalService: ProfileModalService) {
-  }
-
-  getUserName(): string{
-    if(this.authService.userInfo?.email){
-      return this.authService.userInfo?.email.split("@")[0];
-    }
-    return "Гость";
   }
 
   onSignOut() {

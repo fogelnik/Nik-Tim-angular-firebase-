@@ -17,7 +17,7 @@
           </li>
         </ul>
         <div class="header__top-menu-country" (click)="toggleModal()">
-          <app-currency-modal *ngIf="isModalVisible"></app-currency-modal>
+          <app-currency-modal *ngIf="isModalVisible" ></app-currency-modal>
           <img src="assets/flag/flag.png" alt="img">
           <span>BYN</span>
         </div>
@@ -54,7 +54,7 @@
             <span>
               {{ isAuthenticated ? 'Профиль' : 'Войти' }}
             </span>
-            <app-profile *ngIf="profileModalService.isModalVisible"></app-profile>
+            <app-profile *ngIf="profileModalService.isModalVisible" ></app-profile>
           </div>
 
           <div class="header__bottom-block-nav-basket" (click)="navigateToBasket()">
@@ -62,7 +62,7 @@
             <span>
               Корзина
             </span>
-            <div class="header__bottom-block-nav-basket-count" *ngIf="test > 0" >{{ test }}</div>
+            <div class="header__bottom-block-nav-basket-count" *ngIf="count > 0" >{{ count }}</div>
           </div>
         </div>
       </div>

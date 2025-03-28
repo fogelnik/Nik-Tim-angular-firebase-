@@ -13,21 +13,19 @@ export class BasketService {
 
   addToCart(product: Product) {
     this.cart.push(product);
+    this.basketCardCount ++
     this.saveCartToLocalStorage();
-    console.log('Продукт добавлен в корзину:', product);
   }
   getCart(){
     this.loadCartFromLocalStorage();
     this.basketCardCount = this.cart.length
     return this.cart;
   }
-
   removeFromCart(index:number){
     this.cart.splice(index, 1);
     this.saveCartToLocalStorage();
     console.log('Продукт удален из корзины:', index);
   }
-
   private saveCartToLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }

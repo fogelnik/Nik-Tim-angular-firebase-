@@ -43,8 +43,8 @@ export class HeaderComponent implements OnInit{
   //   this.itemCount = this.basketService.getCart().length;
   // }
 
-  get test():number {
-    return this.basketService.getCart().length
+  get count():number {
+    return this.basketService.basketCardCount
   }
 
   navigateToWelcomePage() {

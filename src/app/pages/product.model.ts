@@ -7,4 +7,5 @@ export interface Product {
   color: string;
   rating: string;
   votes: number;
+  itemCount: number
 }
