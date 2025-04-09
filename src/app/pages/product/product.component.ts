@@ -24,6 +24,8 @@ export class ProductComponent implements OnInit {
   isProductInCart: boolean = false;
   buttonText: string = 'Послезавтра';
 
+
+
   constructor(
     private dataService: DataService,
     private router: Router,
@@ -40,8 +42,10 @@ export class ProductComponent implements OnInit {
       this.isLoading = false;
     });
   }
+  openProductDetails(product: any): void {
+    this.router.navigate(['/product-details'], { state: { product } });
+  }
   addToBasket(product: Product, event: any) {
-
     const button = event.target;
 
     if(!this.isProductInCart){
@@ -99,8 +103,34 @@ export class ProductComponent implements OnInit {
   onMouseLeave(event: MouseEvent): void {
     const target = event.target as HTMLElement;
 
-    // Сбрасываем transform при уходе мыши
     target.style.transformOrigin = 'center';
     target.style.transform = 'scale(1)'; // Возвращаем к оригинальному размеру
   }
+
+  //slider
+
+  currentIndex = 0;
+  indicators = new Array(5);
+
+  prevSlide(): void {
+    const slides = document.querySelector('.product__slider-slides') as HTMLElement;
+    const totalSlides = slides.children.length;
+
+    this.currentIndex = (this.currentIndex - 1 + totalSlides) % totalSlides;
+    this.updateSlidePosition(slides);
+  }
+
+  nextSlide(): void {
+    const slides = document.querySelector('.product__slider-slides') as HTMLElement;
+    const totalSlides = slides.children.length;
+
+    this.currentIndex = (this.currentIndex + 1) % totalSlides;
+    this.updateSlidePosition(slides);
+  }
+
+  updateSlidePosition(slides: HTMLElement): void {
+    slides.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+  }
+
+
 }

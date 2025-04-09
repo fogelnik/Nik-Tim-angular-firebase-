@@ -4,10 +4,38 @@
   </div>
 
   <div *ngIf="!isLoading" class="product__wrapper">
+    <div class="product__slider">
+        <div class="product__slider-slides">
+          <div class="product__slider-slides-img">
+            <img src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/shans_on_sng_2880.webp">
+          </div>
+          <div class="product__slider-slides-img">
+            <img src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/2880_electroshok.webp">
+          </div>
+          <div class="product__slider-slides-img">
+            <img src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/spring_2880.webp">
+          </div>
+          <div class="product__slider-slides-img">
+            <img src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/local_storage_by_2880.webp">
+          </div>
+          <div class="product__slider-slides-img">
+            <img src="https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/minsk-dost_2880.webp">
+          </div>
+        </div>
+      <button class="product__slider-btn-prev" (click)="prevSlide()">←</button>
+      <button class="product__slider-btn-next" (click)="nextSlide()">→</button>
 
+      <div class="product__slider-indicators">
+    <span
+      *ngFor="let indicator of indicators; let i = index"
+      [ngClass]="{'active': i === currentIndex}"
+      class="product__indicator">
+    </span>
+      </div>
+    </div>
 
     <div class="product__grid">
-      <div class="product__card" *ngFor="let product of products; let i = index">
+      <div class="product__card" *ngFor="let product of products; let i = index" (click)="openProductDetails(product)">
         <div class="product__card-img">
           <div>
             <img [src]="product.image" alt="icon">

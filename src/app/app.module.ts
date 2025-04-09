@@ -16,6 +16,7 @@ import { BasketComponent } from './pages/basket/basket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AddressesComponent } from './pages/addresses/addresses.component';
 import { UserNamePipe } from './pages/Pipes/user-name.pipe';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 
 
@@ -23,6 +24,7 @@ import { UserNamePipe } from './pages/Pipes/user-name.pipe';
 @NgModule({
   declarations: [
     AppComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

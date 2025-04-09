@@ -5,6 +5,7 @@ import {AuthGuard, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
 import {BasketComponent} from "./pages/basket/basket.component";
 import {AddressesComponent} from "./pages/addresses/addresses.component";
 import {HomeComponent} from "./pages/dashboard/home/home.component";
+import {ProductDetailsComponent} from "./pages/product-details/product-details.component";
 
 const redirectToLogin = () => redirectUnauthorizedTo('/auth/sign-in')
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
     path: '',
     component: ProductComponent
   },
+  {
+    path: 'product-details',
+    component: ProductDetailsComponent  },
   {
     path: 'auth',
     children: [
